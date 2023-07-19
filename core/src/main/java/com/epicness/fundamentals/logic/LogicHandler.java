@@ -9,7 +9,7 @@ import com.epicness.fundamentals.renderer.Renderer;
 import com.epicness.fundamentals.stuff.SharedStuff;
 import com.epicness.fundamentals.stuff.Stuff;
 
-public abstract class LogicHandler<A extends Assets, L extends Logic, R extends Renderer<?>, S extends Stuff<?>> {
+public abstract class LogicHandler<A extends Assets, L extends Logic, R extends Renderer<S>, S extends Stuff<A>> {
 
     protected Game game;
     protected SharedAssets sharedAssets;
@@ -22,13 +22,12 @@ public abstract class LogicHandler<A extends Assets, L extends Logic, R extends 
     protected R renderer;
     protected S stuff;
 
-    protected void init() {
+    protected abstract void init();
+
+    public void update() {
     }
 
-    protected void update() {
-    }
-
-    protected void update(float delta) {
+    public void update(float delta) {
     }
 
     protected final void setSharedStructure(
