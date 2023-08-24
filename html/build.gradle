@@ -26,7 +26,7 @@ gwt {
   //// The next line can be useful to uncomment if you want output that hasn't been obfuscated.
 //  compiler.style = org.wisepersist.gradle.plugins.gwt.Style.DETAILED
 
-  sourceLevel = 1.11
+  sourceLevel = 1.14
 }
 
 dependencies {
@@ -130,7 +130,7 @@ task dist(dependsOn: [clean, compileGwt]) {
 task addSource {
   doLast {
     sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
-    
+
   }
 }
 

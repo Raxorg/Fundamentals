@@ -3,6 +3,7 @@ package com.epicness.fundamentals.assets;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.ASSETS;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.CIRCLE_SPRITE;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.GLOW_SPRITE;
+import static com.epicness.fundamentals.assets.SharedAssetPaths.LIBGDX_SPRITE;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.PIXELFONT_FONT;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.PIXEL_SPRITE;
 import static com.epicness.fundamentals.assets.SharedAssetPaths.SHORTLASER_SOUND;
@@ -27,6 +28,8 @@ public class SharedAssets extends Assets {
 
     private Sprite glow;
 
+    private Sprite libGDX;
+
     private Sprite pixel;
 
     private Sprite square32;
@@ -48,6 +51,7 @@ public class SharedAssets extends Assets {
         timesSquare = get(TIMESSQUARE_FONT);
         circle = get(CIRCLE_SPRITE);
         glow = get(GLOW_SPRITE);
+        libGDX = get(LIBGDX_SPRITE);
         pixel = get(PIXEL_SPRITE);
         square32 = get(SQUARE32_SPRITE);
         square32Inverted = get(SQUARE32INVERTED_SPRITE);
@@ -73,6 +77,10 @@ public class SharedAssets extends Assets {
 
     public Sprite getGlow() {
         return glow;
+    }
+
+    public Sprite getLibGDX() {
+        return libGDX;
     }
 
     public Sprite getPixel() {

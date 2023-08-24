@@ -36,9 +36,9 @@ public class SpritedText implements Buttonable, Movable {
     }
 
     @Override
-    public void translateX(float x) {
-        background.translateX(x);
-        label.translateX(x);
+    public void translateX(float amount) {
+        background.translateX(amount);
+        label.translateX(amount);
     }
 
     @Override
@@ -47,9 +47,9 @@ public class SpritedText implements Buttonable, Movable {
     }
 
     @Override
-    public void translateY(float y) {
-        background.translateY(y);
-        label.translateY(y);
+    public void translateY(float amount) {
+        background.translateY(amount);
+        label.translateY(amount);
     }
 
     @Override
@@ -98,9 +98,14 @@ public class SpritedText implements Buttonable, Movable {
 
     public void setText(String text) {
         label.setText(text);
+        centerTextOnTargetWidth();
     }
 
     public void setTextTargetWidth(float width) {
         label.setTextTargetWidth(width);
+    }
+
+    private void centerTextOnTargetWidth() {
+        label.setX(background.getX() + background.getWidth() / 2f - label.getTextTargetWidth() / 2f);
     }
 }

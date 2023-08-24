@@ -1,8 +1,8 @@
 package com.epicness.fundamentals.stuff;
 
-import static com.epicness.fundamentals.SharedConstants.BLACK_CLEAR_50;
-import static com.epicness.fundamentals.SharedConstants.CAMERA_HEIGHT;
-import static com.epicness.fundamentals.SharedConstants.CAMERA_WIDTH;
+import static com.epicness.fundamentals.constants.SharedConstants.BLACK_CLEAR_50;
+import static com.epicness.fundamentals.constants.SharedConstants.CAMERA_HEIGHT;
+import static com.epicness.fundamentals.constants.SharedConstants.CAMERA_WIDTH;
 
 import com.badlogic.gdx.graphics.Color;
 import com.epicness.fundamentals.SharedScreen;
@@ -20,15 +20,15 @@ public class SharedStuff extends Stuff<SharedAssets> {
     @Override
     public void initializeStuff() {
         animatedBackground = new AnimatedBackgroundDeluxe(
-                0, 0,
-                CAMERA_WIDTH, CAMERA_HEIGHT,
-                Color.NAVY,
-                assets.getWeirdShape(),
-                assets.getPixel(),
-                screen.getStaticCamera(),
-                24,
-                12,
-                20f
+            0, 0,
+            CAMERA_WIDTH, CAMERA_HEIGHT,
+            Color.NAVY,
+            assets.getWeirdShape(),
+            assets.getPixel(),
+            screen.getStaticCamera(),
+            24,
+            12,
+            20f
         );
         animatedBackground.setFollowBackgroundColor(false);
         animatedBackground.setSpriteColor(BLACK_CLEAR_50);

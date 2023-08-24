@@ -3,6 +3,7 @@ package com.epicness.fundamentals.stuff;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
@@ -33,21 +34,24 @@ public class Text implements Buttonable, Movable {
     public void draw(SpriteBatch spriteBatch) {
         font.setColor(color);
         getFont().draw(
-                spriteBatch,
-                text,
-                bounds.x,
-                centerVertical ? bounds.y + bounds.height / 2f : bounds.y,
-                0,
-                text.length(),
-                bounds.width,
-                horizontalAlignment,
-                true,
-                truncate
+            spriteBatch,
+            text,
+            bounds.x,
+            centerVertical ? bounds.y + bounds.height / 2f : bounds.y + bounds.height,
+            0,
+            text.length(),
+            bounds.width,
+            horizontalAlignment,
+            true,
+            truncate
         );
     }
 
-    protected void calculateSize() {
-        bounds.height = TextUtils.getTextHeight(getFont(), text, bounds.width, horizontalAlignment, true, truncate);
+    public void drawDebug(ShapeRenderer shapeRenderer) {
+        shapeRenderer.rect(
+            bounds.x, centerVertical ? bounds.y - bounds.height / 2f : bounds.y,
+            bounds.width, bounds.height
+        );
     }
 
     @Override
@@ -56,13 +60,18 @@ public class Text implements Buttonable, Movable {
     }
 
     @Override
-    public float getY() {
-        return bounds.y;
+    public float getX() {
+        return bounds.x;
     }
 
     @Override
-    public void setY(float y) {
-        bounds.y = y;
+    public void translateX(float x) {
+        bounds.x += x;
+    }
+
+    @Override
+    public float getY() {
+        return bounds.y;
     }
 
     @Override
@@ -70,21 +79,8 @@ public class Text implements Buttonable, Movable {
         bounds.y += y;
     }
 
-    public float getX() {
-        return bounds.x;
-    }
-
-    public void setX(float x) {
-        bounds.x = x;
-    }
-
-    public void setPosition(float x, float y) {
-        setX(x);
-        setY(y);
-    }
-
-    public void translateX(float x) {
-        bounds.x += x;
+    protected void calculateSize() {
+        bounds.height = TextUtils.getTextHeight(this);
     }
 
     public float getWidth() {

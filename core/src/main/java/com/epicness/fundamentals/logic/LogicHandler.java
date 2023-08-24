@@ -1,6 +1,7 @@
 package com.epicness.fundamentals.logic;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.epicness.fundamentals.SharedScreen;
 import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.assets.SharedAssets;
@@ -24,10 +25,11 @@ public abstract class LogicHandler<A extends Assets, L extends Logic, R extends 
 
     protected abstract void init();
 
-    public void update() {
+    public final void update() {
+        update(Gdx.graphics.getDeltaTime());
     }
 
-    public void update(float delta) {
+    protected void update(float delta) {
     }
 
     protected final void setSharedStructure(

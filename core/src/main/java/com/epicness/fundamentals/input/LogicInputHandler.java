@@ -7,68 +7,58 @@ import com.epicness.fundamentals.renderer.Renderer;
 import com.epicness.fundamentals.stuff.Stuff;
 
 public abstract class LogicInputHandler<A extends Assets, L extends Logic, R extends Renderer<S>, S extends Stuff<A>>
-        extends LogicHandler<A, L, R, S> {
+    extends LogicHandler<A, L, R, S> {
 
     public void register() {
         input.addInputHandler(this);
     }
 
+    protected void consumeInput() {
+        input.consumeInput();
+    }
+
     // Input related to the static camera
-    public boolean mouseMoved(float x, float y) {
-        return false;
+    public void mouseMoved(float x, float y) {
     }
 
-    public boolean scrolled(float amountX, float amountY) {
-        return false;
+    public void scrolled(float amountX, float amountY) {
     }
 
-    public boolean touchDown(float x, float y) {
-        return false;
+    public void touchDown(float x, float y) {
     }
 
-    public boolean touchDragged(float x, float y) {
-        return false;
+    public void touchDragged(float x, float y) {
     }
 
-    public boolean touchUp(float x, float y) {
-        return false;
+    public void touchUp(float x, float y) {
     }
 
-    public boolean touchCancelled(float x, float y) {
-        return false;
+    public void touchCancelled(float x, float y) {
     }
 
     // Input related to the dynamic camera
-    public boolean mouseMovedDynamic(float x, float y) {
-        return false;
+    public void mouseMovedDynamic(float x, float y) {
     }
 
-    public boolean touchDownDynamic(float x, float y) {
-        return false;
+    public void touchDownDynamic(float x, float y) {
     }
 
-    public boolean touchDraggedDynamic(float x, float y) {
-        return false;
+    public void touchDraggedDynamic(float x, float y) {
     }
 
-    public boolean touchUpDynamic(float x, float y) {
-        return false;
+    public void touchUpDynamic(float x, float y) {
     }
 
-    public boolean touchCancelledDynamic(float x, float y) {
-        return false;
+    public void touchCancelledDynamic(float x, float y) {
     }
 
     // Camera-agnostic input
-    public boolean keyDown(int keycode) {
-        return false;
+    public void keyDown(int keycode) {
     }
 
-    public boolean keyUp(int keycode) {
-        return false;
+    public void keyUp(int keycode) {
     }
 
-    public boolean keyTyped(char character) {
-        return false;
+    public void keyTyped(char character) {
     }
 }

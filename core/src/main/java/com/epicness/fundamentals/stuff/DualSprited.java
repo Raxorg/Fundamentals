@@ -6,11 +6,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.epicness.fundamentals.renderer.ShapeBatch;
-import com.epicness.fundamentals.stuff.interfaces.Actor;
+import com.epicness.fundamentals.renderer.ShapeRendererPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
+import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
-public class DualSprited implements Actor, Buttonable {
+public class DualSprited implements Buttonable, Transformable {
 
     protected final Sprite background, foreground;
     private boolean backgroundButtonable;
@@ -29,23 +29,21 @@ public class DualSprited implements Actor, Buttonable {
         foreground.draw(spriteBatch);
     }
 
-    @Override
-    public void draw(SpriteBatch spriteBatch, ShapeBatch shapeBatch) {
+    public void draw(SpriteBatch spriteBatch) {
         drawBackground(spriteBatch);
         drawForeground(spriteBatch);
     }
 
-    @Override
-    public void drawDebug(ShapeBatch shapeBatch) {
-        shapeBatch.rect(background.getBoundingRectangle());
-        shapeBatch.rect(foreground.getBoundingRectangle());
+    public void drawDebug(ShapeRendererPlus shapeRenderer) {
+        shapeRenderer.rect(background.getBoundingRectangle());
+        shapeRenderer.rect(foreground.getBoundingRectangle());
     }
 
     @Override
     public boolean contains(float x, float y) {
         return backgroundButtonable
-                ? background.getBoundingRectangle().contains(x, y)
-                : foreground.getBoundingRectangle().contains(x, y);
+            ? background.getBoundingRectangle().contains(x, y)
+            : foreground.getBoundingRectangle().contains(x, y);
     }
 
     public void setBackgroundButtonable(boolean backgroundButtonable) {
@@ -108,8 +106,20 @@ public class DualSprited implements Actor, Buttonable {
     }
 
     @Override
+    public void setWidth(float width) {
+        stretchBackgroundWidth(width - background.getWidth());
+        stretchForegroundWidth(width - foreground.getWidth());
+    }
+
+    @Override
     public float getHeight() {
         return background.getHeight();
+    }
+
+    @Override
+    public void setHeight(float height) {
+        stretchBackgroundHeight(height - background.getHeight());
+        stretchForegroundHeight(height - foreground.getHeight());
     }
 
     public void rotateBackground(float degrees) {
@@ -118,6 +128,11 @@ public class DualSprited implements Actor, Buttonable {
 
     public void rotateForeground(float degrees) {
         foreground.rotate(degrees);
+    }
+
+    @Override
+    public float getRotation() {
+        return background.getRotation();
     }
 
     @Override

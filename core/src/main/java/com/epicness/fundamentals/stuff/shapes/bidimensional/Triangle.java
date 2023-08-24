@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes;
+package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 

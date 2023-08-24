@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes;
+package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import static com.badlogic.gdx.graphics.Color.WHITE;
 

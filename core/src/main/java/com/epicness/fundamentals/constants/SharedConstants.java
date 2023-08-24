@@ -1,4 +1,4 @@
-package com.epicness.fundamentals;
+package com.epicness.fundamentals.constants;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

@@ -7,11 +7,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.epicness.fundamentals.renderer.ShapeBatch;
-import com.epicness.fundamentals.stuff.interfaces.Actor;
+import com.epicness.fundamentals.renderer.ShapeRendererPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
+import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
-public class Sprited implements Actor, Buttonable {
+public class Sprited implements Buttonable, Transformable {
 
     private final Sprite sprite;
 
@@ -23,14 +23,12 @@ public class Sprited implements Actor, Buttonable {
         this.sprite.setRegion(sprite);
     }
 
-    @Override
-    public void draw(SpriteBatch spriteBatch, ShapeBatch shapeBatch) {
+    public void draw(SpriteBatch spriteBatch) {
         sprite.draw(spriteBatch);
     }
 
-    @Override
-    public void drawDebug(ShapeBatch shapeBatch) {
-        shapeBatch.rect(getBoundingRectangle());
+    public void drawDebug(ShapeRendererPlus shapeRenderer) {
+        shapeRenderer.rect(getBoundingRectangle());
     }
 
     @Override
@@ -83,6 +81,11 @@ public class Sprited implements Actor, Buttonable {
     }
 
     @Override
+    public float getRotation() {
+        return sprite.getRotation();
+    }
+
+    @Override
     public void rotate(float degrees) {
         sprite.rotate(degrees);
     }
@@ -105,6 +108,10 @@ public class Sprited implements Actor, Buttonable {
 
     public Vector2 getCenter() {
         return new Vector2(getCenterX(), getCenterY());
+    }
+
+    public Vector2 getOrigin() {
+        return new Vector2(sprite.getOriginX(), sprite.getOriginY());
     }
 
     public float getOriginBasedX() {
@@ -135,16 +142,20 @@ public class Sprited implements Actor, Buttonable {
         return sprite.getOriginY();
     }
 
+    public void setOriginX(float originX) {
+        sprite.setOrigin(originX, sprite.getOriginY());
+    }
+
+    public void setOriginY(float originY) {
+        sprite.setOrigin(sprite.getOriginX(), originY);
+    }
+
     public void setOrigin(float originX, float originY) {
         sprite.setOrigin(originX, originY);
     }
 
     public void setOriginCenter() {
         sprite.setOriginCenter();
-    }
-
-    public float getRotation() {
-        return sprite.getRotation();
     }
 
     public void setRotation(float degrees) {
@@ -155,8 +166,20 @@ public class Sprited implements Actor, Buttonable {
         return sprite.isFlipX();
     }
 
+    public boolean isFlipY() {
+        return sprite.isFlipY();
+    }
+
     public void setFlip(boolean flipX, boolean flipY) {
         sprite.setFlip(flipX, flipY);
+    }
+
+    public void setFlipX(boolean flipX) {
+        setFlip(flipX, sprite.isFlipY());
+    }
+
+    public void setFlipY(boolean flipY) {
+        setFlip(sprite.isFlipX(), flipY);
     }
 
     public Color getColor() {

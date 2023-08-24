@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes;
+package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import static com.badlogic.gdx.graphics.Color.GRAY;
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
@@ -20,7 +20,7 @@ public class Circle implements Movable {
     }
 
     public Circle(float x, float y, float radius) {
-        this(x, y, radius, GRAY);
+        this(x, y, radius, GRAY.cpy());
     }
 
     public Circle(float x, float y, Color color) {

@@ -32,7 +32,13 @@ public abstract class Logic {
         }
     }
 
-    public abstract void update(float delta);
+    public void restart() {
+        for (int i = 0; i < logicHandlers.size(); i++) {
+            logicHandlers.get(i).init();
+        }
+    }
+
+    public abstract void update();
 
     public void pause() {
     }
