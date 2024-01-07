@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.epicness.fundamentals.stuff.DualSprited;
-import com.epicness.fundamentals.utils.TextUtils;
 
 // A Game subclass like this one (not this one) should be the entry point for your game
 public class FundamentalsTest extends Game {
@@ -21,6 +20,7 @@ public class FundamentalsTest extends Game {
     SpriteBatch spriteBatch;
     BitmapFont font;
     DualSprited x;
+    String test;
 
     @Override
     public void create() {
@@ -30,13 +30,14 @@ public class FundamentalsTest extends Game {
         Sprite a = new Sprite(new Texture(WEIRDSHAPE_SPRITE.fileName));
         x = new DualSprited(a, a);
         x.setSize(100f);
+        test = "ABCDEF!GHIJKL\"MNOPQR'S\nTUVWX,YZ0123:456789?ab\ncdefghijklmnopqrstuvw\nxyz";
     }
 
     @Override
     public void render() {
         ScreenUtils.clear(Color.FOREST);
         spriteBatch.begin();
-        font.draw(spriteBatch, "F:U,N.D A\"M", 100f, 100f + TextUtils.getTextHeight(font, "F:U,N.D A\"M"));
+        font.draw(spriteBatch, test, 0f, 400f);
         x.draw(spriteBatch);
         if (Gdx.input.isKeyPressed(K)) {
             x.stretchWidth(10f);

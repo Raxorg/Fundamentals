@@ -106,12 +106,12 @@ public class Sprited implements Buttonable, Transformable {
         return sprite.getY() + sprite.getHeight() / 2f;
     }
 
-    public Vector2 getCenter() {
-        return new Vector2(getCenterX(), getCenterY());
+    public Vector2 getCenter(Vector2 result) {
+        return result.set(getCenterX(), getCenterY());
     }
 
-    public Vector2 getOrigin() {
-        return new Vector2(sprite.getOriginX(), sprite.getOriginY());
+    public Vector2 getOrigin(Vector2 result) {
+        return result.set(sprite.getOriginX(), sprite.getOriginY());
     }
 
     public float getOriginBasedX() {
@@ -122,12 +122,12 @@ public class Sprited implements Buttonable, Transformable {
         return sprite.getY() + sprite.getOriginY();
     }
 
-    public Vector2 getOriginBasedCenter() {
-        return new Vector2(getOriginBasedX(), getOriginBasedY());
+    public Vector2 getOriginBasedCenter(Vector2 result) {
+        return result.set(getOriginBasedX(), getOriginBasedY());
     }
 
-    public Vector2 getScale() {
-        return new Vector2(sprite.getScaleX(), sprite.getScaleY());
+    public Vector2 getScale(Vector2 result) {
+        return result.set(sprite.getScaleX(), sprite.getScaleY());
     }
 
     public void setScale(float scale) {
@@ -142,16 +142,16 @@ public class Sprited implements Buttonable, Transformable {
         return sprite.getOriginY();
     }
 
+    public void setOrigin(float originX, float originY) {
+        sprite.setOrigin(originX, originY);
+    }
+
     public void setOriginX(float originX) {
-        sprite.setOrigin(originX, sprite.getOriginY());
+        setOrigin(originX, sprite.getOriginY());
     }
 
     public void setOriginY(float originY) {
-        sprite.setOrigin(sprite.getOriginX(), originY);
-    }
-
-    public void setOrigin(float originX, float originY) {
-        sprite.setOrigin(originX, originY);
+        setOrigin(sprite.getOriginX(), originY);
     }
 
     public void setOriginCenter() {
