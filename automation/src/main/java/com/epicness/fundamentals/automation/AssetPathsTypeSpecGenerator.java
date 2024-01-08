@@ -56,7 +56,7 @@ public class AssetPathsTypeSpecGenerator {
         descriptors.forEach(descriptor -> {
             String identifier = descriptor.file.nameWithoutExtension().replace(".", "_").toUpperCase();
             String name = identifier + "_" + Extension.getTypeName(descriptor.file.extension());
-            String path = descriptor.fileName.replace("android/assets/", "");
+            String path = descriptor.fileName.replace("assets/", "");
             Class<?> assetClass = Extension.getType(descriptor.file.extension());
             builder.addStatement("ASSETS.add($L = new $T<>($S, $T.class))", name, assetDescriptor, path, assetClass);
         });
