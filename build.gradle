@@ -16,13 +16,12 @@ buildscript {
 }
 
 allprojects {
-  apply plugin: 'eclipse'
   apply plugin: 'idea'
 }
 
 configure(subprojects - project(':android')) {
   apply plugin: 'java-library'
-  sourceCompatibility = 14
+  sourceCompatibility = 11
   compileJava {
     options.incremental = true
   }
@@ -42,5 +41,3 @@ subprojects {
     maven { url 'https://jitpack.io' }
   }
 }
-
-eclipse.project.name = 'Fundamentals' + '-parent'
