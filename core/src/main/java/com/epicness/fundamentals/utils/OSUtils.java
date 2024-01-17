@@ -6,8 +6,8 @@ public class OSUtils {
 
     @SuppressWarnings("SdCardPath")
     private static final String[] BLUESTACKS_DIRS = {
-            "/sdcard/windows/BstSharedFolder",
-            "/mnt/windows/BstSharedFolder",
+        "/sdcard/windows/BstSharedFolder",
+        "/mnt/windows/BstSharedFolder",
     };
 
     public static boolean IsRunningOnBluestacks() {

@@ -33,12 +33,12 @@ public abstract class LogicHandler<A extends Assets, L extends Logic, R extends 
     }
 
     protected final void setSharedStructure(
-            Game game,
-            SharedAssets assets,
-            SharedInput input,
-            SharedLogic sharedLogic,
-            SharedScreen screen,
-            SharedStuff sharedStuff
+        Game game,
+        SharedAssets assets,
+        SharedInput input,
+        SharedLogic sharedLogic,
+        SharedScreen screen,
+        SharedStuff sharedStuff
     ) {
         this.game = game;
         this.sharedAssets = assets;
