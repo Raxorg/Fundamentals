@@ -18,7 +18,7 @@ public class AssetDescriptorGatherer {
         gatherFiles(root.child("audios"), "mp3", "ogg", "wav");
         gatherFiles(root.child("fonts"), "png");
         gatherFiles(root.child("images"));
-        gatherFiles(root.child("shaders"), "glsl");
+        gatherFiles(root.child("shaders"), "vert", "frag");
         return descriptors;
     }
 

@@ -5,7 +5,6 @@ import static javax.lang.model.element.Modifier.PRIVATE;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.automation.TypeSpecWithStaticImports.StaticImport;
 import com.epicness.fundamentals.utils.StringUtils;
@@ -36,6 +35,7 @@ public class AssetsTypeSpecGenerator {
         builder.addFields(fieldSpecs(descriptors));
         builder.addMethod(initializeAssetsSpec(descriptors));
         builder.addMethods(getterSpecs(descriptors));
+
         return builder.build();
     }
 
