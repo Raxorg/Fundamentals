@@ -17,8 +17,6 @@ public class SharedAssets extends Assets {
 
     private Sprite libGDX;
 
-    private Sprite pixel;
-
     private Sprite square32;
 
     private Sprite square32Inverted;
@@ -27,11 +25,15 @@ public class SharedAssets extends Assets {
 
     private Sprite weirdShape;
 
+    private Sound beep;
+
     private Sound shortLaser;
 
     private BitmapFont pixelFont;
 
     private BitmapFont timesSquare;
+
+    private Sprite pixel;
 
     public SharedAssets() {
         super(ASSETS);
@@ -44,14 +46,15 @@ public class SharedAssets extends Assets {
         dot = get(SPRITES_ATLAS).createSprite("dot");
         glow = get(SPRITES_ATLAS).createSprite("glow");
         libGDX = get(SPRITES_ATLAS).createSprite("libGDX");
-        pixel = get(SPRITES_ATLAS).createSprite("pixel");
         square32 = get(SPRITES_ATLAS).createSprite("square32");
         square32Inverted = get(SPRITES_ATLAS).createSprite("square32Inverted");
         triangle = get(SPRITES_ATLAS).createSprite("triangle");
         weirdShape = get(SPRITES_ATLAS).createSprite("weirdShape");
+        beep = get(BEEP_SOUND);
         shortLaser = get(SHORTLASER_SOUND);
         pixelFont = get(PIXELFONT_FONT);
         timesSquare = get(TIMESSQUARE_FONT);
+        pixel = get(PIXEL_SPRITE);
     }
 
     public Sprite getSpritesAtlas() {
@@ -74,10 +77,6 @@ public class SharedAssets extends Assets {
         return libGDX;
     }
 
-    public Sprite getPixel() {
-        return pixel;
-    }
-
     public Sprite getSquare32() {
         return square32;
     }
@@ -94,6 +93,10 @@ public class SharedAssets extends Assets {
         return weirdShape;
     }
 
+    public Sound getBeep() {
+        return beep;
+    }
+
     public Sound getShortLaser() {
         return shortLaser;
     }
@@ -104,5 +107,9 @@ public class SharedAssets extends Assets {
 
     public BitmapFont getTimesSquare() {
         return timesSquare;
+    }
+
+    public Sprite getPixel() {
+        return pixel;
     }
 }

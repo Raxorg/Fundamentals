@@ -3,7 +3,7 @@ package com.epicness.fundamentals.stuff.grid;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class CellGrid<T extends Cell> extends Grid {
+public abstract class CellGrid<T extends Cell> extends Grid {
 
     public final T[][] cells;
 
@@ -52,9 +52,5 @@ public class CellGrid<T extends Cell> extends Grid {
 
     public float getHeight() {
         return rows * cells[0][0].getHeight();
-    }
-
-    public T[][] getCells() {
-        return cells;
     }
 }
