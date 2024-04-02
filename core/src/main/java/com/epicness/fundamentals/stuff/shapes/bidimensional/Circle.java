@@ -7,8 +7,10 @@ import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
-public class Circle extends com.badlogic.gdx.math.Circle implements Transformable {
+public class Circle implements Transformable {
 
+    public final float radius;
+    private float x, y;
     private final Color borderColor, fillColor;
     private float thickness;
 
@@ -58,11 +60,11 @@ public class Circle extends com.badlogic.gdx.math.Circle implements Transformabl
     }
 
     public void drawFilled(ShapeDrawer shapeDrawer) {
-        shapeDrawer.filledCircle(x, y, radius, fillColor);
+        shapeDrawer.filledCircle(x + radius, y + radius, radius, fillColor);
     }
 
     public void drawBorder(ShapeDrawerPlus shapeDrawer) {
-        shapeDrawer.circle(x, y, radius, thickness, borderColor);
+        shapeDrawer.circle(x + radius, y + radius, radius, thickness, borderColor);
     }
 
     public void draw(ShapeDrawerPlus shapeDrawer) {
@@ -72,27 +74,17 @@ public class Circle extends com.badlogic.gdx.math.Circle implements Transformabl
 
     public void draw(ShapeRenderer shapeRenderer) {
         shapeRenderer.setColor(borderColor);
-        shapeRenderer.circle(x, y, radius);
+        shapeRenderer.circle(x + radius, y + radius, radius);
     }
 
     @Override
     public float getX() {
-        return x - radius;
-    }
-
-    @Override
-    public void setX(float x) {
-        Transformable.super.setX(x);
+        return x;
     }
 
     @Override
     public float getY() {
-        return y - radius;
-    }
-
-    @Override
-    public void setY(float y) {
-        Transformable.super.setY(y);
+        return y;
     }
 
     @Override
