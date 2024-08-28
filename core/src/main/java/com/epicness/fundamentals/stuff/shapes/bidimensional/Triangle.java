@@ -1,6 +1,7 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
@@ -34,6 +35,10 @@ public class Triangle implements ShapeDrawable, Movable {
     @Override
     public void draw(ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.triangle(x1, y1, x2, y2, x3, y3, thickness, color.toFloatBits());
+    }
+
+    public void draw(ShapeRenderer shapeRenderer) {
+        shapeRenderer.triangle(x1, y1, x2, y2, x3, y3);
     }
 
     @Override
