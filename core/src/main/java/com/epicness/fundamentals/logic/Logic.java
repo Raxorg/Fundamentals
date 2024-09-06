@@ -40,6 +40,8 @@ public abstract class Logic {
 
     public abstract void update();
 
+    public abstract void resize(int width, int height);
+
     public void pause() {
     }
 
