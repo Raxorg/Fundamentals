@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.epicness.fundamentals.stuff.DualSprited;
 import com.epicness.fundamentals.stuff.GradientFont;
 
+// TODO: 9/12/2024 "Asset groups" allow you to load or dispose assets at runtime from a single asset manager
 // A Game subclass like this one (not this one) should be the entry point for your game
 public class FundamentalsTest extends Game {
 
