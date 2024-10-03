@@ -32,6 +32,14 @@ public class ColorConstants {
     public static final Color PASTEL_YELLOW = new Color(0xFFFF99FF);
     public static final Color PASTEL_ORANGE = new Color(0xFFD0A1FF);
     public static final Color PASTEL_PURPLE = new Color(0xB1A3FFFF);
+    public static final Color[] PASTEL_COLORS = {
+        PASTEL_RED,
+        PASTEL_GREEN,
+        PASTEL_BLUE,
+        PASTEL_YELLOW,
+        PASTEL_ORANGE,
+        PASTEL_PURPLE
+    };
 
     // Terminal
     public static final String ANSI_RESET = "\u001B[0m";

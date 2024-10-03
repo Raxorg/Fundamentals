@@ -77,6 +77,7 @@ public class SpritedText implements Buttonable, Movable {
     public void setSize(float width, float height) {
         background.setSize(width, height);
         label.setY(background.getY() + height / 2f);
+        centerTextOnTargetWidth();
     }
 
     public Color getBackgroundColor() {
@@ -89,6 +90,11 @@ public class SpritedText implements Buttonable, Movable {
 
     public void setTextColor(Color color) {
         label.setColor(color);
+    }
+
+    public void setColor(Color color) {
+        setBackgroundColor(color);
+        setTextColor(color);
     }
 
     public String getText() {
@@ -110,5 +116,9 @@ public class SpritedText implements Buttonable, Movable {
 
     public void setFontScale(float scale) {
         label.setScale(scale);
+    }
+
+    public float getFontScale() {
+        return label.getScale();
     }
 }

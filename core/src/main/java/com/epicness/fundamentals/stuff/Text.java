@@ -14,11 +14,12 @@ public class Text implements Buttonable, Movable {
 
     private final BitmapFont font;
     private String text;
-    private boolean verticallyCentered;
+    private boolean verticallyCentered, wrap;
     private float yOffset;
     private int hAlign;
     private String truncate;
     private final Rectangle bounds;
+    private final Color color;
 
     public Text(BitmapFont font, String text) {
         this.font = font;
@@ -26,6 +27,8 @@ public class Text implements Buttonable, Movable {
         hAlign = Align.left;
         bounds = new Rectangle();
         bounds.width = 500f;
+        color = new Color(1f, 1f, 1f, 1f);
+        updateBounds();
     }
 
     public Text(BitmapFont font) {
@@ -33,6 +36,7 @@ public class Text implements Buttonable, Movable {
     }
 
     public void draw(SpriteBatch spriteBatch) {
+        font.setColor(color);
         font.draw(
             spriteBatch,
             text,
@@ -134,11 +138,11 @@ public class Text implements Buttonable, Movable {
     }
 
     public Color getColor() {
-        return font.getColor();
+        return color;
     }
 
     public void setColor(Color color) {
-        font.setColor(color);
+        this.color.set(color);
     }
 
     public float getWidth() {

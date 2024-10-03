@@ -1,8 +1,11 @@
 package com.epicness.fundamentals.renderer;
 
+import static com.badlogic.gdx.math.MathUtils.degRad;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
@@ -23,6 +26,18 @@ public class ShapeDrawerPlus extends ShapeDrawer {
     public void circle(float x, float y, float radius, float thickness, Color color) {
         float auxColor = setColor(color);
         circle(x, y, radius, thickness);
+        setColor(auxColor);
+    }
+
+    public void rectangle(Rectangle rectangle, Color color, float thickness, float degrees) {
+        float auxColor = setColor(color);
+        rectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height, thickness, degrees * degRad);
+        setColor(auxColor);
+    }
+
+    public void filledRectangle(Rectangle rectangle, Color color, float degrees) {
+        float auxColor = setColor(color);
+        filledRectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height, degrees * degRad);
         setColor(auxColor);
     }
 }

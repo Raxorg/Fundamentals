@@ -1,8 +1,11 @@
 package com.epicness.fundamentals.utils;
 
+import static com.epicness.fundamentals.constants.ColorConstants.ANSI_RESET;
+
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Vector2;
+import com.epicness.fundamentals.constants.ColorConstants;
 import com.epicness.fundamentals.stuff.Text;
 
 public class TextUtils {
@@ -64,5 +67,13 @@ public class TextUtils {
 
     public static BitmapFont copyOf(BitmapFont font) {
         return new BitmapFont(font.getData().fontFile);
+    }
+
+    /**
+     * Changes the color of text displayed in the console<br>
+     * Check {@link ColorConstants} for available colors
+     */
+    public static String colorString(String string, String color) {
+        return color + string + ANSI_RESET;
     }
 }
