@@ -7,8 +7,10 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.utils.JsonValue;
 import com.epicness.fundamentals.assets.loaders.ExplicitMusicLoader;
 import com.epicness.fundamentals.assets.loaders.ExplicitSoundLoader;
+import com.epicness.fundamentals.assets.loaders.JsonValueLoader;
 import com.epicness.fundamentals.assets.loaders.ShaderLoader;
 import com.epicness.fundamentals.assets.loaders.ShaderProgramLoader;
 import com.epicness.fundamentals.assets.loaders.SpriteArrayLoader;
@@ -31,6 +33,7 @@ public abstract class Assets {
         assetManager.setLoader(Sound.class, new ExplicitSoundLoader(resolver));
         assetManager.setLoader(Sprite.class, new SpriteLoader(resolver));
         assetManager.setLoader(Sprite[].class, new SpriteArrayLoader(resolver));
+        assetManager.setLoader(JsonValue.class, new JsonValueLoader(resolver));
         this.assetDescriptors = assetDescriptors;
     }
 

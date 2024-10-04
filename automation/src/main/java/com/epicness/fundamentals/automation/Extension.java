@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.utils.JsonValue;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,8 @@ public enum Extension {
     PNG("png", Sprite.class, "SPRITE"),
     SOGG("sogg", Sound.class, "SOUND"),
     SP("sp", ShaderProgram.class, "SHADER_PROGRAM"),
-    SWAV("swav", Sound.class, "SOUND");
+    SWAV("swav", Sound.class, "SOUND"),
+    JSON("json", JsonValue.class, "JSON");
 
     private static final Map<String, Extension> LOOKUP = new HashMap<>();
 
