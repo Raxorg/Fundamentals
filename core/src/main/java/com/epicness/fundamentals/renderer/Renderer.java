@@ -50,11 +50,11 @@ public abstract class Renderer<S extends Stuff<?>> {
     }
 
     public void useStaticCamera() {
-        useCamera(screen.getStaticCamera());
+        useCamera(screen.staticCamera);
     }
 
     public void useDynamicCamera() {
-        useCamera(screen.getDynamicCamera());
+        useCamera(screen.dynamicCamera);
     }
 
     public SpriteBatch getSpriteBatch() {
@@ -69,7 +69,7 @@ public abstract class Renderer<S extends Stuff<?>> {
         return shapeDrawer;
     }
 
-    protected void drawArray(Array<? extends Drawable2D> array) {
+    protected final void drawArray(Array<? extends Drawable2D> array) {
         for (int i = 0; i < array.size; i++) {
             array.get(i).draw(spriteBatch, shapeDrawer);
         }

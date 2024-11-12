@@ -1,18 +1,20 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Polygon;
 import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
+import com.epicness.fundamentals.stuff.interfaces.Rotatable;
 import com.epicness.fundamentals.stuff.interfaces.ShapeDrawable;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
-public class Polygon extends com.badlogic.gdx.math.Polygon implements ShapeDrawable, Movable {
+public class PolygonPlus extends Polygon implements ShapeDrawable, Movable, Rotatable {
 
     private final Color borderColor, fillColor;
     private float thickness;
 
-    public Polygon(float[] vertices) {
+    public PolygonPlus(float[] vertices) {
         super(vertices);
         borderColor = new Color(1f, 1f, 1f, 1f);
         fillColor = new Color(1f, 1f, 1f, 1f);

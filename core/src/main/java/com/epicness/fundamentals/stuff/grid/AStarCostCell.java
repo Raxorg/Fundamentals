@@ -10,7 +10,7 @@ public class AStarCostCell<T> {
     public int gCost, hCost, fCost;
     public AStarCostCell<T> previousCell;
     public final List<AStarCostCell<T>> neighbors;
-    public boolean blocked;
+    private boolean blocked;
 
     public AStarCostCell(int col, int row) {
         this.col = col;
@@ -28,5 +28,22 @@ public class AStarCostCell<T> {
 
     public boolean isEmpty() {
         return object == null;
+    }
+
+    @Override
+    public String toString() {
+        return "AStarCostCell{" +
+            "object=" + object +
+            ", col=" + col +
+            ", row=" + row +
+            '}';
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 }

@@ -57,9 +57,9 @@ public abstract class Initializer<A extends Assets, L extends Logic, R extends R
         initialized = true;
         sharedResources.registerInitializer(this);
 
-        logic.initialLogic();
         game.setScreen(screen);
         renderer.useStaticCamera();
+        logic.initialLogic();
     }
 
     public final void fastInitialize(SharedResources sharedResources) {
@@ -74,9 +74,9 @@ public abstract class Initializer<A extends Assets, L extends Logic, R extends R
         input.clearInputHandlers();
         input.setEnabled(true);
 
-        logic.initialLogic();
         game.setScreen(screen);
         renderer.useStaticCamera();
+        logic.initialLogic();
     }
 
     public Assets getAssets() {

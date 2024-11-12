@@ -29,6 +29,16 @@ public class ShapeDrawerPlus extends ShapeDrawer {
         setColor(auxColor);
     }
 
+    public void arc(float centreX, float centreY, float radius, float startAngle, float radians, float lineWidth, Color color) {
+        float auxColor = setColor(color);
+        arc(centreX, centreY, radius, startAngle, radians, lineWidth);
+        setColor(auxColor);
+    }
+
+    public void sector(float centreX, float centreY, float radius, float startAngle, float radians, Color color) {
+        sector(centreX, centreY, radius, startAngle, radians, color, color);
+    }
+
     public void rectangle(Rectangle rectangle, Color color, float thickness, float degrees) {
         float auxColor = setColor(color);
         rectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height, thickness, degrees * degRad);

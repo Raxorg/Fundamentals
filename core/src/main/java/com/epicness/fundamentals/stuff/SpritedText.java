@@ -114,11 +114,11 @@ public class SpritedText implements Buttonable, Movable {
         label.setX(background.getX() + background.getWidth() / 2f - label.getWidth() / 2f);
     }
 
-    public void setFontScale(float scale) {
-        label.setScale(scale);
-    }
-
     public float getFontScale() {
         return label.getScale();
+    }
+
+    public void setFontScale(float scale) {
+        label.setScale(scale);
     }
 }

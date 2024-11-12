@@ -3,12 +3,13 @@ package com.epicness.fundamentals.stuff;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
 import com.epicness.fundamentals.utils.TextUtils;
+
+import space.earlygrey.shapedrawer.ShapeDrawer;
 
 public class Text implements Buttonable, Movable {
 
@@ -46,13 +47,13 @@ public class Text implements Buttonable, Movable {
             text.length(),
             bounds.width,
             hAlign,
-            true,
+            wrap,
             truncate
         );
     }
 
-    public void drawDebug(ShapeRenderer shapeRenderer) {
-        shapeRenderer.rect(
+    public void drawDebug(ShapeDrawer shapeDrawer) {
+        shapeDrawer.rectangle(
             bounds.x,
             bounds.y + yOffset,
             bounds.width,
@@ -117,6 +118,10 @@ public class Text implements Buttonable, Movable {
     public void setVerticallyCentered(boolean centered) {
         verticallyCentered = centered;
         yOffset = centered ? bounds.height / 2f : 0f;
+    }
+
+    public void setWrap(boolean wrap) {
+        this.wrap = wrap;
     }
 
     public String getTruncate() {

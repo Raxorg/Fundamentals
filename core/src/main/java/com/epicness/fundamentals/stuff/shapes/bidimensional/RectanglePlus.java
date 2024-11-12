@@ -4,6 +4,7 @@ import static com.badlogic.gdx.graphics.Color.WHITE;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
 import com.epicness.fundamentals.stuff.interfaces.ShapeDrawable;
@@ -27,6 +28,10 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
         this(x, y, w, h, borderColor, fillColor, thickness, 0f);
     }
 
+    public RectanglePlus(float x, float y, float size, Color borderColor, Color fillColor, float thickness) {
+        this(x, y, size, size, borderColor, fillColor, thickness);
+    }
+
     public RectanglePlus(float x, float y, float w, float h, Color borderColor, Color fillColor) {
         this(x, y, w, h, borderColor, fillColor, 5f);
     }
@@ -37,6 +42,10 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
 
     public RectanglePlus(float x, float y, float w, float h, Color color) {
         this(x, y, w, h, color, color);
+    }
+
+    public RectanglePlus(float x, float y, float size, Color borderColor, Color fillColor) {
+        this(x, y, size, size, borderColor, fillColor);
     }
 
     public RectanglePlus(float x, float y, float size, Color color) {
@@ -51,8 +60,20 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
         this(x, y, size, size);
     }
 
+    public RectanglePlus(float size, Color borderColor, Color fillColor) {
+        this(0f, 0f, size, borderColor, fillColor);
+    }
+
     public RectanglePlus(Color borderColor, Color fillColor) {
         this(0f, 0f, 5f, 5f, borderColor, fillColor);
+    }
+
+    public RectanglePlus(Vector2 position) {
+        this(position.x, position.y, 5f);
+    }
+
+    public RectanglePlus(float size) {
+        this(0f, 0f, size);
     }
 
     public RectanglePlus(Color color) {
