@@ -14,11 +14,19 @@ public class PolygonPlus extends Polygon implements ShapeDrawable, Movable, Rota
     private final Color borderColor, fillColor;
     private float thickness;
 
-    public PolygonPlus(float[] vertices) {
+    public PolygonPlus(float[] vertices, float thickness, Color borderColor, Color fillColor) {
         super(vertices);
-        borderColor = new Color(1f, 1f, 1f, 1f);
-        fillColor = new Color(1f, 1f, 1f, 1f);
-        thickness = 3f;
+        this.borderColor = new Color(borderColor);
+        this.fillColor = new Color(fillColor);
+        this.thickness = thickness;
+    }
+
+    public PolygonPlus(float[] vertices, float thickness) {
+        this(vertices, thickness, new Color(1f, 1f, 1f, 1f), new Color(1f, 1f, 1f, 1f));
+    }
+
+    public PolygonPlus(float[] vertices) {
+        this(vertices, 3f);
     }
 
     public void drawFilled(ShapeDrawer shapeDrawer) {
