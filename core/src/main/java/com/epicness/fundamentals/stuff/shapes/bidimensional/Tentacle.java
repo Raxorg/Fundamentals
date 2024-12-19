@@ -7,7 +7,7 @@ import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
 import com.epicness.fundamentals.stuff.interfaces.ShapeDrawable;
 
-public class Tentacle implements Movable, ShapeDrawable {
+public class Tentacle implements ShapeDrawable, Movable {
 
     private final Line[] lines;
     private final Vector2 target;
