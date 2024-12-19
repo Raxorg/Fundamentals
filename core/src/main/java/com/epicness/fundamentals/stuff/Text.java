@@ -154,16 +154,16 @@ public class Text implements Buttonable, Movable {
         return bounds.width;
     }
 
+    public float getPlainWidth() {
+        return TextUtils.getTextWidth(this);
+    }
+
     public void setWidth(float width) {
         bounds.width = width;
     }
 
     public float getHeight() {
         return TextUtils.getTextHeight(this);
-    }
-
-    public float getPlainWidth() {
-        return TextUtils.getTextWidth(this);
     }
 
     private void updateBounds() {

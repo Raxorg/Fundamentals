@@ -48,7 +48,7 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
     }
 
     public CirclePlus(float radius, Color borderColor, Color fillColor) {
-        this(0f, 0f, radius, borderColor, fillColor);
+        this(radius, borderColor, fillColor, 3f);
     }
 
     public CirclePlus(float x, float y, float radius, Color color) {

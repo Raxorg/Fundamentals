@@ -5,8 +5,9 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
+import com.epicness.fundamentals.stuff.interfaces.ShapeDrawable;
 
-public class Tentacle implements Movable {
+public class Tentacle implements Movable, ShapeDrawable {
 
     private final Line[] lines;
     private final Vector2 target;
@@ -33,6 +34,7 @@ public class Tentacle implements Movable {
         }
     }
 
+    @Override
     public void draw(ShapeDrawerPlus shapeDrawer) {
         for (int i = 0; i < lines.length; i++) {
             lines[i].draw(shapeDrawer);

@@ -10,7 +10,7 @@ public class AStarCostCell<T> {
     public int gCost, hCost, fCost;
     public AStarCostCell<T> previousCell;
     public final List<AStarCostCell<T>> neighbors;
-    private boolean blocked;
+    public boolean blocked;
 
     public AStarCostCell(int col, int row) {
         this.col = col;
@@ -37,13 +37,5 @@ public class AStarCostCell<T> {
             ", col=" + col +
             ", row=" + row +
             '}';
-    }
-
-    public boolean isBlocked() {
-        return blocked;
-    }
-
-    public void setBlocked(boolean blocked) {
-        this.blocked = blocked;
     }
 }

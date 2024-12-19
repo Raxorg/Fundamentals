@@ -42,7 +42,7 @@ public class AStarPathfinder<T> {
         startCell.hCost = calculateHCost(startCell, endCell);
         startCell.fCost = startCell.gCost + startCell.hCost;
 
-        while (openList.size() > 0) {
+        while (!openList.isEmpty()) {
             cell = getLowestFCostCell(openList);
             if (cell == endCell) return calculatePath(endCell);
 
@@ -52,7 +52,7 @@ public class AStarPathfinder<T> {
             for (int i = 0; i < cell.neighbors.size(); i++) {
                 AStarCostCell<T> neighbor = cell.neighbors.get(i);
                 if (closedList.contains(neighbor)) continue;
-                if (neighbor.isBlocked()) {
+                if (neighbor.blocked) {
                     closedList.add(neighbor);
                     continue;
                 }

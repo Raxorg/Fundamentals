@@ -23,7 +23,7 @@ public class ArrayUtils {
     public static <T> T[][] rotateMatrix(T[][] matrix) {
         int cols = matrix[0].length;
         int rows = matrix.length;
-        T[][] rotated = newArray(matrix[0][0], cols, rows);
+        T[][] rotated = newMatrix(matrix[0][0], cols, rows);
 
         for (int col = 0; col < cols; col++) {
             for (int row = 0; row < rows; row++) {
@@ -35,7 +35,7 @@ public class ArrayUtils {
     }
 
     @SuppressWarnings("unchecked")
-    private static <T> T[][] newArray(T sample, int cols, int rows) {
+    private static <T> T[][] newMatrix(T sample, int cols, int rows) {
         if (sample instanceof Byte) {
             return (T[][]) new Byte[cols][rows];
         } else if (sample instanceof Short) {
