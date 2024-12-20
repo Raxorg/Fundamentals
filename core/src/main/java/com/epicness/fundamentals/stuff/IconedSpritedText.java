@@ -9,16 +9,16 @@ import com.epicness.fundamentals.stuff.interfaces.Movable;
 
 public class IconedSpritedText implements Buttonable, Movable {
 
-    private final Sprited background;
+    private final SpritePlus background;
     private final Text label;
-    private final Sprited icon;
+    private final SpritePlus icon;
 
     public IconedSpritedText(Sprite backgroundSprite, BitmapFont font, Sprite iconSprite) {
-        background = new Sprited(backgroundSprite);
+        background = new SpritePlus(backgroundSprite);
         label = new Text(font);
         label.hAlignCenter();
         label.setVerticallyCentered(true);
-        icon = new Sprited(iconSprite);
+        icon = new SpritePlus(iconSprite);
     }
 
     public void draw(SpriteBatch spriteBatch) {

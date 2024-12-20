@@ -1,9 +1,9 @@
 package com.epicness.fundamentals.stuff.grid;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.epicness.fundamentals.stuff.Sprited;
+import com.epicness.fundamentals.stuff.SpritePlus;
 
-public class Cell extends Sprited {
+public class Cell extends SpritePlus {
 
     private final int column, row;
 
