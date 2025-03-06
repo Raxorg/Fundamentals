@@ -15,6 +15,7 @@ public class ColorConstants {
     public static final Color BLACK_50 = new Color(0, 0, 0, 0.50f);
     public static final Color BLACK_75 = new Color(0, 0, 0, 0.75f);
 
+    public static final Color LIBGDX_MATTE = new Color(0x252633ff);
     public static final Color NAVY_GRAY_50 = new Color(0.25f, 0.25f, 0.5f, 1f);
     public static final Color BETTER_PURPLE = new Color(0.5f, 0f, 1f, 1f);
 
