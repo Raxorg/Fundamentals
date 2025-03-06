@@ -7,8 +7,8 @@ public class Cell extends SpritePlus {
 
     private final int column, row;
 
-    public Cell(Sprite cellSprite, int column, int row) {
-        super(cellSprite);
+    public Cell(Sprite sprite, int column, int row) {
+        super(sprite);
         this.column = column;
         this.row = row;
     }
