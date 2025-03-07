@@ -54,12 +54,12 @@ public class SpritedText implements Buttonable, Movable {
     @Override
     public void setY(float y) {
         background.setY(y);
-        label.setY(y + background.getHeight() / 2f);
+        label.setY(y + background.getHeight() * 0.5f);
     }
 
     public void setPosition(float x, float y) {
         background.setPosition(x, y);
-        label.setPosition(x, y + background.getHeight() / 2f);
+        label.setPosition(x, y + background.getHeight() * 0.5f);
     }
 
     public float getWidth() {
@@ -76,7 +76,7 @@ public class SpritedText implements Buttonable, Movable {
 
     public void setSize(float width, float height) {
         background.setSize(width, height);
-        label.setY(background.getY() + height / 2f);
+        label.setY(background.getY() + height * 0.5f);
         centerTextOnTargetWidth();
     }
 
@@ -111,7 +111,7 @@ public class SpritedText implements Buttonable, Movable {
     }
 
     private void centerTextOnTargetWidth() {
-        label.setX(background.getX() + background.getWidth() / 2f - label.getWidth() / 2f);
+        label.setX(background.getX() + background.getWidth() * 0.5f - label.getWidth() * 0.5f);
     }
 
     public float getFontScale() {

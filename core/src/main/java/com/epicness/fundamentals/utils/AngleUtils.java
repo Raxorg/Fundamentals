@@ -12,7 +12,7 @@ public class AngleUtils {
     }
 
     public static float circularClamp(float angle, float min, float max) {
-        float diff = Math.abs(min - max) / 2f;
+        float diff = Math.abs(min - max) * 0.5f;
         angle = angle < min ? (angle + diff < min ? max : min) : (angle > max ? (angle - diff > max ? min : max) : angle);
         return angle;
     }

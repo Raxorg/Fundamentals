@@ -12,11 +12,11 @@ public interface Transformable extends Movable, Scalable, Rotatable, HasCenter {
 
     @Override
     default float getCenterX() {
-        return getX() + getWidth() / 2f;
+        return getX() + getWidth() * 0.5f;
     }
 
     @Override
     default float getCenterY() {
-        return getY() + getHeight() / 2f;
+        return getY() + getHeight() * 0.5f;
     }
 }

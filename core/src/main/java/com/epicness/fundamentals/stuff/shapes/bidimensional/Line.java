@@ -8,7 +8,7 @@ import com.epicness.fundamentals.stuff.interfaces.Movable;
 import com.epicness.fundamentals.stuff.interfaces.ShapeDrawable;
 import com.epicness.fundamentals.utils.AngleUtils;
 
-public class Line implements Movable, ShapeDrawable {
+public class Line implements ShapeDrawable, Movable {
 
     private final Vector2 a, b;
     private float angleDeg;

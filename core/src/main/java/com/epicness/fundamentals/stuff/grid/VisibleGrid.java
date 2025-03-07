@@ -44,8 +44,8 @@ public abstract class VisibleGrid<T extends Drawable2D & Movable> extends Generi
     public void center(float x, float y) {
         float gridWidth = cols * cellSize + cellSpacing * (cols - 1);
         float gridHeight = rows * cellSize + cellSpacing * (rows - 1);
-        float gridX = x - gridWidth / 2f;
-        float gridY = y - gridHeight / 2f;
+        float gridX = x - gridWidth * 0.5f;
+        float gridY = y - gridHeight * 0.5f;
         traverseCells((col, row, cell) -> {
             float cellX = gridX + cellSize * col + cellSpacing * col;
             float cellY = gridY + cellSize * row + cellSpacing * row;

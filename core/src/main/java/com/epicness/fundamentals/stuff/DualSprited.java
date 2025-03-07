@@ -155,11 +155,11 @@ public class DualSprited implements Buttonable, Transformable {
     }
 
     public float getForegroundCenterX() {
-        return foreground.getX() + foreground.getWidth() / 2f;
+        return foreground.getX() + foreground.getWidth() * 0.5f;
     }
 
     public float getForegroundCenterY() {
-        return foreground.getY() + foreground.getHeight() / 2f;
+        return foreground.getY() + foreground.getHeight() * 0.5f;
     }
 
     public Vector2 getForegroundCenter() {
@@ -269,11 +269,11 @@ public class DualSprited implements Buttonable, Transformable {
     }
 
     public float getBackgroundCenterX() {
-        return background.getX() + background.getWidth() / 2f;
+        return background.getX() + background.getWidth() * 0.5f;
     }
 
     public float getBackgroundCenterY() {
-        return background.getY() + background.getHeight() / 2f;
+        return background.getY() + background.getHeight() * 0.5f;
     }
 
     public Vector2 getBackgroundCenter() {

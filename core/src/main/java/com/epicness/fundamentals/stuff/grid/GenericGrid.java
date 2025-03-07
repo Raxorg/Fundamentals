@@ -36,8 +36,7 @@ public class GenericGrid<T> {
     }
 
     public T getCell(int col, int row) {
-        if (col >= 0 && col < cols && row >= 0 && row < rows) return cells.get(col).get(row);
-        else return null;
+        return cells.get(col).get(row);
     }
 
     public final void traverseCells(CellConsumer<T> consumer) {

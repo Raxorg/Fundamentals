@@ -35,20 +35,16 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
         this(x, y, radius, borderColor, fillColor, 3f);
     }
 
-    public CirclePlus(Vector2 position, float radius, Color borderColor, Color fillColor) {
-        this(position.x, position.y, radius, borderColor, fillColor, 3f);
-    }
-
     public CirclePlus(float x, float y, float radius, Color color, float thickness) {
         this(x, y, radius, color, color, thickness);
     }
 
-    public CirclePlus(float radius, Color borderColor, Color fillColor, float thickness) {
-        this(0f, 0f, radius, borderColor, fillColor, thickness);
+    public CirclePlus(Vector2 position, float radius, Color borderColor, Color fillColor) {
+        this(position.x, position.y, radius, borderColor, fillColor, 3f);
     }
 
-    public CirclePlus(float radius, Color borderColor, Color fillColor) {
-        this(radius, borderColor, fillColor, 3f);
+    public CirclePlus(float radius, Color borderColor, Color fillColor, float thickness) {
+        this(0f, 0f, radius, borderColor, fillColor, thickness);
     }
 
     public CirclePlus(float x, float y, float radius, Color color) {
@@ -57,6 +53,10 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
 
     public CirclePlus(float x, float y, Color color, float thickness) {
         this(x, y, 5f, color, thickness);
+    }
+
+    public CirclePlus(float radius, Color borderColor, Color fillColor) {
+        this(radius, borderColor, fillColor, 3f);
     }
 
     public CirclePlus(float x, float y, float radius) {
@@ -153,12 +153,12 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
 
     @Override
     public void stretchWidth(float amount) {
-        radius += amount / 2f;
+        radius += amount * 0.5f;
     }
 
     @Override
     public void stretchHeight(float amount) {
-        radius += amount / 2f;
+        radius += amount * 0.5f;
     }
 
     @Override
@@ -185,8 +185,8 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
     }
 
     public void setRadiusCentered(float radius) {
-        x -= (radius - this.radius) / 2f;
-        y -= (radius - this.radius) / 2f;
+        x -= (radius - this.radius) * 0.5f;
+        y -= (radius - this.radius) * 0.5f;
         this.radius = radius;
     }
 

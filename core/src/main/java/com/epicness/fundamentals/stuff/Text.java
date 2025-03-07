@@ -117,7 +117,7 @@ public class Text implements Buttonable, Movable {
 
     public void setVerticallyCentered(boolean centered) {
         verticallyCentered = centered;
-        yOffset = centered ? bounds.height / 2f : 0f;
+        yOffset = centered ? bounds.height * 0.5f : 0f;
     }
 
     public void setWrap(boolean wrap) {
@@ -154,12 +154,12 @@ public class Text implements Buttonable, Movable {
         return bounds.width;
     }
 
-    public float getPlainWidth() {
-        return TextUtils.getTextWidth(this);
-    }
-
     public void setWidth(float width) {
         bounds.width = width;
+    }
+
+    public float getPlainWidth() {
+        return TextUtils.getTextWidth(this);
     }
 
     public float getHeight() {
@@ -168,6 +168,6 @@ public class Text implements Buttonable, Movable {
 
     private void updateBounds() {
         bounds.height = TextUtils.getTextHeight(this);
-        yOffset = verticallyCentered ? bounds.height / 2f : 0f;
+        yOffset = verticallyCentered ? bounds.height * 0.5f : 0f;
     }
 }

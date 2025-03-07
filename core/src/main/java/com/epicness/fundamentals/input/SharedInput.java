@@ -213,7 +213,7 @@ public class SharedInput implements InputProcessor {
     }
 
     public void setScreen(SharedScreen screen) {
-        staticCamera = screen.staticCamera;
-        dynamicCamera = screen.dynamicCamera;
+        staticCamera = screen.getStaticCamera();
+        dynamicCamera = screen.getDynamicCamera();
     }
 }

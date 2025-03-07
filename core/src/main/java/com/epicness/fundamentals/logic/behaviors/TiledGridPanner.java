@@ -37,13 +37,13 @@ public class TiledGridPanner {
         float differenceX = sprite.getBoundingRectangle().x - maxX;
         if (differenceX > 0f) {
             sprite.setX(tiledSpriteGrid.getBounds().x - sprite.getBoundingRectangle().width + differenceX);
-            sprite.translateX((sprite.getBoundingRectangle().width - sprite.getWidth()) / 2f);
+            sprite.translateX((sprite.getBoundingRectangle().width - sprite.getWidth()) * 0.5f);
         }
 
         float differenceY = sprite.getBoundingRectangle().y - maxY;
         if (differenceY > 0f) {
             sprite.setY(tiledSpriteGrid.getBounds().y - sprite.getBoundingRectangle().height + differenceY);
-            sprite.translateY((sprite.getBoundingRectangle().height - sprite.getHeight()) / 2f);
+            sprite.translateY((sprite.getBoundingRectangle().height - sprite.getHeight()) * 0.5f);
         }
     }
 }

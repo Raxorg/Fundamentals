@@ -26,7 +26,7 @@ public class SharedStuff extends Stuff<SharedAssets> {
             NAVY.cpy(),
             assets.getWeirdShape(),
             assets.getPixel(),
-            screen.staticCamera,
+            screen.getStaticCamera(),
             24,
             12,
             20f

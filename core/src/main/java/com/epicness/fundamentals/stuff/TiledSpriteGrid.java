@@ -102,7 +102,7 @@ public class TiledSpriteGrid {
                     continue;
                 }
                 SpritePlus sprite = sprites[column][row];
-                sprite.translateX(spriteSize / 2f + xSpacing / 2f);
+                sprite.translateX(spriteSize * 0.5f + xSpacing * 0.5f);
             }
         }
     }

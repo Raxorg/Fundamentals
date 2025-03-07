@@ -38,8 +38,6 @@ public abstract class Renderer<S extends Stuff<?>> {
 
     public void resize(int width, int height) {
         viewport.update(width, height);
-        spriteBatch.setProjectionMatrix(viewport.getCamera().combined);
-        shapeRenderer.setProjectionMatrix(viewport.getCamera().combined);
     }
 
     public void useCamera(Camera camera) {
@@ -50,11 +48,11 @@ public abstract class Renderer<S extends Stuff<?>> {
     }
 
     public void useStaticCamera() {
-        useCamera(screen.staticCamera);
+        useCamera(screen.getStaticCamera());
     }
 
     public void useDynamicCamera() {
-        useCamera(screen.dynamicCamera);
+        useCamera(screen.getDynamicCamera());
     }
 
     public SpriteBatch getSpriteBatch() {

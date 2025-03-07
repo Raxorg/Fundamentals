@@ -14,7 +14,7 @@ public class SharedScreen extends ScreenAdapter {
     private Logic logic;
     private Renderer<?> renderer;
     // Screen related
-    public final OrthographicCamera dynamicCamera, staticCamera;
+    private final OrthographicCamera dynamicCamera, staticCamera;
 
     public SharedScreen() {
         dynamicCamera = new OrthographicCamera();
@@ -38,6 +38,14 @@ public class SharedScreen extends ScreenAdapter {
     @Override
     public void pause() {
         logic.pause();
+    }
+
+    public OrthographicCamera getDynamicCamera() {
+        return dynamicCamera;
+    }
+
+    public OrthographicCamera getStaticCamera() {
+        return staticCamera;
     }
 
     // Structure
