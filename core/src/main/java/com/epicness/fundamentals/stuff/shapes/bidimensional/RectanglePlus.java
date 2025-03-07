@@ -89,14 +89,6 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
             rectanglePlus.borderColor, rectanglePlus.fillColor, rectanglePlus.thickness, rectanglePlus.rotation);
     }
 
-    public void drawFilled(ShapeDrawerPlus shapeDrawer) {
-        shapeDrawer.filledRectangle(rectangle, fillColor, rotation);
-    }
-
-    public void drawBorder(ShapeDrawerPlus shapeDrawer) {
-        shapeDrawer.rectangle(rectangle, borderColor, thickness, rotation);
-    }
-
     @Override
     public boolean contains(float x, float y) {
         return rectangle.contains(x, y);
@@ -104,6 +96,14 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
 
     public boolean overlaps(RectanglePlus other) {
         return rectangle.overlaps(other.rectangle);
+    }
+
+    public void drawFilled(ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.filledRectangle(rectangle, fillColor, rotation);
+    }
+
+    public void drawBorder(ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.rectangle(rectangle, borderColor, thickness, rotation);
     }
 
     @Override
