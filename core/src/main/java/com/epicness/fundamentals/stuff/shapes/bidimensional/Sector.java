@@ -1,9 +1,11 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
+import static com.badlogic.gdx.graphics.Color.WHITE;
 import static com.badlogic.gdx.math.MathUtils.degRad;
 import static com.badlogic.gdx.math.MathUtils.radDeg;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
@@ -44,6 +46,13 @@ public class Sector implements ShapeDrawable, Movable {
         shapeDrawer.arc(x, y, radius, startAngle, radians, thickness, borderColor);
         shapeDrawer.line(x, y, line1x2, line1y2, borderColor, thickness);
         shapeDrawer.line(x, y, line2x2, line2y2, borderColor, thickness);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.arc(x, y, radius, startAngle, radians, 1.5f, WHITE);
+        shapeDrawer.line(x, y, line1x2, line1y2, WHITE, 1.5f);
+        shapeDrawer.line(x, y, line2x2, line2y2, WHITE, 1.5f);
     }
 
     @Override

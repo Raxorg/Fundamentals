@@ -3,6 +3,7 @@ package com.epicness.fundamentals.stuff.shapes.bidimensional;
 import static com.badlogic.gdx.graphics.Color.WHITE;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
@@ -75,6 +76,10 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
         this(0f, 0f, radius, color);
     }
 
+    public CirclePlus(Color borderColor, Color fillColor) {
+        this(5f, borderColor, fillColor);
+    }
+
     public CirclePlus(Vector2 position) {
         this(position.x, position.y);
     }
@@ -110,7 +115,8 @@ public class CirclePlus implements Transformable, Buttonable, ShapeDrawable {
         shapeRenderer.circle(x + radius, y + radius, radius);
     }
 
-    public void drawDebug(ShapeDrawerPlus shapeDrawer) {
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.circle(x + radius, y + radius, radius, 1.5f, WHITE);
     }
 

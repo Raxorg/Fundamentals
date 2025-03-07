@@ -10,9 +10,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
+import com.epicness.fundamentals.stuff.interfaces.SpriteBatchDrawable;
 import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
-public class SpritedAnimation implements Buttonable, Transformable {
+public class SpritedAnimation implements Buttonable, SpriteBatchDrawable, Transformable {
 
     private final Animation<SpritePlus> animation;
     private float time;
@@ -30,14 +31,6 @@ public class SpritedAnimation implements Buttonable, Transformable {
         this(frameDuration, NORMAL, spriteFrames);
     }
 
-    public void draw(SpriteBatch spriteBatch) {
-        animation.getKeyFrame(time).draw(spriteBatch);
-    }
-
-    public void drawDebug(ShapeDrawerPlus shapeDrawer) {
-        animation.getKeyFrame(time).drawDebug(shapeDrawer);
-    }
-
     @Override
     public boolean contains(float x, float y) {
         return animation.getKeyFrame(time).contains(x, y);
@@ -45,6 +38,16 @@ public class SpritedAnimation implements Buttonable, Transformable {
 
     public Rectangle getBoundingRectangle() {
         return animation.getKeyFrame(time).getBoundingRectangle();
+    }
+
+    @Override
+    public void draw(SpriteBatch spriteBatch) {
+        animation.getKeyFrame(time).draw(spriteBatch);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        animation.getKeyFrame(time).drawDebug(spriteBatch, shapeDrawer);
     }
 
     @Override

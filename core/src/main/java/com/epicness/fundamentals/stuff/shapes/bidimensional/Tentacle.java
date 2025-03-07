@@ -1,6 +1,7 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
@@ -38,6 +39,13 @@ public class Tentacle implements ShapeDrawable, Movable {
     public void draw(ShapeDrawerPlus shapeDrawer) {
         for (int i = 0; i < lines.length; i++) {
             lines[i].draw(shapeDrawer);
+        }
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        for (int i = 0; i < lines.length; i++) {
+            lines[i].drawDebug(spriteBatch, shapeDrawer);
         }
     }
 

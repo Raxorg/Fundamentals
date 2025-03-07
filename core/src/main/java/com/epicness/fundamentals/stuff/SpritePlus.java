@@ -9,12 +9,13 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
-import com.epicness.fundamentals.stuff.interfaces.SpriteDrawable;
+import com.epicness.fundamentals.stuff.interfaces.SpriteBatchDrawable;
 import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
-public class SpritePlus implements Buttonable, Transformable, SpriteDrawable {
+public class SpritePlus implements Buttonable, SpriteBatchDrawable, Transformable {
 
     private final Sprite sprite;
+    public float debugThickness = 1.5f;
 
     public SpritePlus(Sprite sprite) {
         this.sprite = new Sprite(sprite);
@@ -25,21 +26,22 @@ public class SpritePlus implements Buttonable, Transformable, SpriteDrawable {
     }
 
     @Override
-    public void draw(SpriteBatch spriteBatch) {
-        sprite.draw(spriteBatch);
-    }
-
-    public void drawDebug(ShapeDrawerPlus shapeDrawer) {
-        shapeDrawer.rectangle(getBoundingRectangle());
-    }
-
-    @Override
     public boolean contains(float x, float y) {
         return getBoundingRectangle().contains(x, y);
     }
 
     public Rectangle getBoundingRectangle() {
         return sprite.getBoundingRectangle();
+    }
+
+    @Override
+    public void draw(SpriteBatch spriteBatch) {
+        sprite.draw(spriteBatch);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.rectangle(getBoundingRectangle(), debugThickness);
     }
 
     @Override

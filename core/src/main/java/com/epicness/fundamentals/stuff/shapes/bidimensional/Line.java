@@ -1,6 +1,9 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
+import static com.badlogic.gdx.graphics.Color.WHITE;
+
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
@@ -87,6 +90,11 @@ public class Line implements ShapeDrawable, Movable {
     @Override
     public void draw(ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.line(a.x, a.y, b.x, b.y, thickness, colorA, colorB);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.line(a.x, a.y, b.x, b.y, WHITE, 1.5f);
     }
 
     @Override

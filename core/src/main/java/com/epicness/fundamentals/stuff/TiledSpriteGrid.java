@@ -58,11 +58,11 @@ public class TiledSpriteGrid {
         ScissorStack.calculateScissors(camera, shapeDrawer.getBatch().getTransformMatrix(), bounds, scissors);
         boolean pop = ScissorStack.pushScissors(scissors);
         // Background
-        background.drawDebug(shapeDrawer);
+        background.drawDebug(null, shapeDrawer);
         // Sprites
         for (int column = 0; column < sprites.length; column++) {
             for (int row = 0; row < sprites[column].length; row++) {
-                sprites[column][row].drawDebug(shapeDrawer);
+                sprites[column][row].drawDebug(null, shapeDrawer);
             }
         }
         // Returning to normal rendering

@@ -5,13 +5,13 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Align;
+import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
+import com.epicness.fundamentals.stuff.interfaces.SpriteBatchDrawable;
 import com.epicness.fundamentals.utils.TextUtils;
 
-import space.earlygrey.shapedrawer.ShapeDrawer;
-
-public class Text implements Buttonable, Movable {
+public class Text implements Buttonable, SpriteBatchDrawable, Movable {
 
     private final BitmapFont font;
     private String text;
@@ -36,6 +36,7 @@ public class Text implements Buttonable, Movable {
         this(font, "");
     }
 
+    @Override
     public void draw(SpriteBatch spriteBatch) {
         font.setColor(color);
         font.draw(
@@ -52,7 +53,8 @@ public class Text implements Buttonable, Movable {
         );
     }
 
-    public void drawDebug(ShapeDrawer shapeDrawer) {
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.rectangle(
             bounds.x,
             bounds.y + yOffset,

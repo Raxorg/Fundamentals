@@ -1,6 +1,9 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
+import static com.badlogic.gdx.graphics.Color.WHITE;
+
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Polygon;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
@@ -45,6 +48,13 @@ public class PolygonPlus extends Polygon implements ShapeDrawable, Movable, Rota
     public void draw(ShapeDrawerPlus shapeDrawer) {
         drawFilled(shapeDrawer);
         drawBorder(shapeDrawer);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        float oldColor = shapeDrawer.setColor(WHITE);
+        shapeDrawer.polygon(this, 1.5f);
+        shapeDrawer.setColor(oldColor);
     }
 
     @Override

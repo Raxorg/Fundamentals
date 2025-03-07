@@ -3,6 +3,7 @@ package com.epicness.fundamentals.stuff.shapes.bidimensional;
 import static com.badlogic.gdx.graphics.Color.WHITE;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
@@ -112,7 +113,8 @@ public class RectanglePlus implements Buttonable, ShapeDrawable, Transformable {
         drawBorder(shapeDrawer);
     }
 
-    public void drawDebug(ShapeDrawerPlus shapeDrawer) {
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.rectangle(rectangle, WHITE, 1.5f, rotation);
     }
 

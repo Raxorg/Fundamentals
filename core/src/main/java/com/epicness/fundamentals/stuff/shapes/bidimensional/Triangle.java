@@ -1,6 +1,9 @@
 package com.epicness.fundamentals.stuff.shapes.bidimensional;
 
+import static com.badlogic.gdx.graphics.Color.WHITE;
+
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.HasCenter;
@@ -39,6 +42,11 @@ public class Triangle implements ShapeDrawable, Movable, HasCenter {
 
     public void draw(ShapeRenderer shapeRenderer) {
         shapeRenderer.triangle(x1, y1, x2, y2, x3, y3);
+    }
+
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
+        shapeDrawer.triangle(x1, y1, x2, y2, x3, y3, 1.5f, WHITE.toFloatBits());
     }
 
     @Override

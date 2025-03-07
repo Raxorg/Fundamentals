@@ -95,4 +95,8 @@ public class TextUtils {
     public static void colorSout(String string, String color) {
         System.out.println(colorString(string, color));
     }
+
+    public static void cyanSout(String string) {
+        colorSout(string, ANSI_CYAN);
+    }
 }
