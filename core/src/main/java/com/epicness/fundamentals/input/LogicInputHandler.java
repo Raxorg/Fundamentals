@@ -4,7 +4,7 @@ import com.badlogic.gdx.Game;
 import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.logic.Logic;
 import com.epicness.fundamentals.logic.LogicHandler;
-import com.epicness.fundamentals.renderer.Renderer;
+import com.epicness.fundamentals.rendering.Renderer;
 import com.epicness.fundamentals.stuff.Stuff;
 
 /**

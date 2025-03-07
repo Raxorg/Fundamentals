@@ -1,7 +1,7 @@
 package com.epicness.fundamentals.stuff.grid;
 
 import com.badlogic.gdx.graphics.Color;
-import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
+import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.shapes.bidimensional.Line;
 
 public class LineGrid extends Grid {

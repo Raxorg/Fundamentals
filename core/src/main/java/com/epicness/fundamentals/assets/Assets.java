@@ -18,7 +18,7 @@ import java.util.List;
 
 public abstract class Assets {
 
-    protected final AssetManager assetManager;
+    private final AssetManager assetManager;
     private final List<AssetDescriptor<?>> assetDescriptors;
     private boolean assetsInitialized = false;
 
@@ -67,5 +67,9 @@ public abstract class Assets {
 
     protected final <T> T get(AssetDescriptor<T> assetDescriptor) {
         return assetManager.get(assetDescriptor);
+    }
+
+    public final void dispose() {
+        assetManager.dispose();
     }
 }

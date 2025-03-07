@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.renderer;
+package com.epicness.fundamentals.rendering;
 
 import static com.epicness.fundamentals.constants.SharedConstants.VIEWPORT_HEIGHT;
 import static com.epicness.fundamentals.constants.SharedConstants.VIEWPORT_WIDTH;

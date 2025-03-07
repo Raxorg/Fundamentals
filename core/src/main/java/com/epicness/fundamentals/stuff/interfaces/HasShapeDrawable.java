@@ -1,6 +1,6 @@
 package com.epicness.fundamentals.stuff.interfaces;
 
-import com.epicness.fundamentals.renderer.ShapeDrawerPlus;
+import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 
 public interface HasShapeDrawable extends ShapeDrawable {
 

@@ -6,7 +6,7 @@ import com.epicness.fundamentals.SharedScreen;
 import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.assets.SharedAssets;
 import com.epicness.fundamentals.input.SharedInput;
-import com.epicness.fundamentals.renderer.Renderer;
+import com.epicness.fundamentals.rendering.Renderer;
 import com.epicness.fundamentals.stuff.SharedStuff;
 import com.epicness.fundamentals.stuff.Stuff;
 

@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.renderer;
+package com.epicness.fundamentals.rendering;
 
 import static com.epicness.fundamentals.assets.SharedAssetPaths.SPRITESNEAREST_ATLAS;
 import static com.epicness.fundamentals.constants.SharedConstants.VIEWPORT_HEIGHT;

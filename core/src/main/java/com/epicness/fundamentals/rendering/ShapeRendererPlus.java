@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.renderer;
+package com.epicness.fundamentals.rendering;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;

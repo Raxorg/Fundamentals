@@ -6,7 +6,7 @@ import static com.epicness.fundamentals.constants.SharedConstants.VIEWPORT_WIDTH
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.epicness.fundamentals.logic.Logic;
-import com.epicness.fundamentals.renderer.Renderer;
+import com.epicness.fundamentals.rendering.Renderer;
 
 public class SharedScreen extends ScreenAdapter {
 

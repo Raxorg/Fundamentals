@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.renderer;
+package com.epicness.fundamentals.rendering;
 
 import static com.badlogic.gdx.math.MathUtils.degRad;
 

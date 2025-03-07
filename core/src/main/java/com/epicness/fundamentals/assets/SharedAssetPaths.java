@@ -26,8 +26,8 @@ public class SharedAssetPaths {
         ASSETS = new ArrayList<>();
         ASSETS.add(SPRITESLINEAR_ATLAS = new AssetDescriptor<>("fundamentals/atlases/spritesLinear.atlas", TextureAtlas.class));
         ASSETS.add(SPRITESNEAREST_ATLAS = new AssetDescriptor<>("fundamentals/atlases/spritesNearest.atlas", TextureAtlas.class));
-        ASSETS.add(BEEP_SOUND = new AssetDescriptor<>("fundamentals/audios/beep.swav", Sound.class));
-        ASSETS.add(SHORTLASER_SOUND = new AssetDescriptor<>("fundamentals/audios/shortLaser.swav", Sound.class));
+        ASSETS.add(BEEP_SOUND = new AssetDescriptor<>("fundamentals/audio/beep.swav", Sound.class));
+        ASSETS.add(SHORTLASER_SOUND = new AssetDescriptor<>("fundamentals/audio/shortLaser.swav", Sound.class));
         ASSETS.add(PIXELFONT_FONT = new AssetDescriptor<>("fundamentals/fonts/pixelFont.fnt", BitmapFont.class));
         ASSETS.add(TIMESSQUARE_FONT = new AssetDescriptor<>("fundamentals/fonts/timesSquare.fnt", BitmapFont.class));
     }
