@@ -77,6 +77,7 @@ public class SpritedText implements Buttonable, Movable {
     public void setSize(float width, float height) {
         background.setSize(width, height);
         label.setY(background.getY() + height * 0.5f);
+        label.setWidth(width);
         centerTextOnTargetWidth();
     }
 

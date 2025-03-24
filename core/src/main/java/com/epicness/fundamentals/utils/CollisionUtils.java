@@ -23,6 +23,14 @@ public class CollisionUtils {
         return overlaps(a.x, a.y, a.width, a.height, b);
     }
 
+    public static boolean overlaps (CirclePlus a, CirclePlus b) {
+        float dx = a.getCenterX() - b.getCenterX();
+        float dy = a.getCenterY() - b.getCenterY();
+        float distance = dx * dx + dy * dy;
+        float radiusSum = a.getRadius() + b.getRadius();
+        return distance < radiusSum * radiusSum;
+    }
+
     public static boolean intersects(Ray ray, Plane plane, Vector3 intersection) {
         return Intersector.intersectRayTriangles(ray, plane.getVertices(), plane.getIndices(), 3, intersection);
     }
