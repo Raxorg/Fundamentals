@@ -141,6 +141,10 @@ public class DualSprited implements Buttonable, Transformable {
         rotateForeground(degrees);
     }
 
+    public void setBackgroundOriginBasedPosition(float x, float y) {
+        background.setOriginBasedPosition(x, y);
+    }
+
     public void setForegroundOriginBasedPosition(float x, float y) {
         foreground.setOriginBasedPosition(x, y);
     }
@@ -255,12 +259,20 @@ public class DualSprited implements Buttonable, Transformable {
         background.setColor(r, g, b, a);
     }
 
+    public void setBackgroundAlpha(float alpha) {
+        background.setAlpha(alpha);
+    }
+
     public void setForegroundColor(Color color) {
         foreground.setColor(color);
     }
 
     public void setForegroundColor(float r, float g, float b, float a) {
         foreground.setColor(r, g, b, a);
+    }
+
+    public void setForegroundAlpha(float alpha) {
+        foreground.setAlpha(alpha);
     }
 
     public void setColor(Color color) {

@@ -5,8 +5,8 @@ import com.badlogic.gdx.math.Vector2;
 public class SharedConstants {
 
     // Default Extend Viewport
-    public static final float VIEWPORT_WIDTH = 1000f;
-    public static final float VIEWPORT_HEIGHT = 1000f;
+    public static final float VIEWPORT_WIDTH = 800f;
+    public static final float VIEWPORT_HEIGHT = 800f;
     public static final float VIEWPORT_HALF_WIDTH = VIEWPORT_WIDTH * 0.5f;
     public static final float VIEWPORT_HALF_HEIGHT = VIEWPORT_HEIGHT * 0.5f;
 

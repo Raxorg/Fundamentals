@@ -60,6 +60,10 @@ public class Line implements ShapeDrawable, Movable {
         this(x, y, length, angle, degrees, 5f, new Color(1f, 1f, 1f, 1f));
     }
 
+    public Line(float x, float y, float length, Color color) {
+        this(x, y, length, 0f, true, 5f, color);
+    }
+
     public Line(float length, float thickness, Color color) {
         this(0f, 0f, length, 0f, true, thickness, color);
     }

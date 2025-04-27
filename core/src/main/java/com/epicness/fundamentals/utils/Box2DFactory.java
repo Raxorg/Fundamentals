@@ -53,10 +53,10 @@ public class Box2DFactory {
      * and rotating the box counterclockwise through the given angle, with specified restitution.
      */
     public static Body createWall(World world, float xMin, float yMin, float xMax, float yMax, float angle, float restitution) {
-        float cx = (xMin + xMax) / 2;
-        float cy = (yMin + yMax) / 2;
-        float hx = Math.abs((xMax - xMin) / 2);
-        float hy = Math.abs((yMax - yMin) / 2);
+        float cx = (xMin + xMax) * 0.5f;
+        float cy = (yMin + yMax) * 0.5f;
+        float hx = Math.abs((xMax - xMin) * 0.5f);
+        float hy = Math.abs((yMax - yMin) * 0.5f);
         PolygonShape wallShape = new PolygonShape();
         // Don't set the angle here; instead call setTransform on the body below. This allows future
         // calls to setTransform to adjust the rotation as expected.
@@ -83,10 +83,10 @@ public class Box2DFactory {
      */
     public static Body createThinWall(World world, float x1, float y1, float x2, float y2, float restitution) {
         // Determine center point and rotation angle for createWall.
-        float cx = (x1 + x2) / 2;
-        float cy = (y1 + y2) / 2;
+        float cx = (x1 + x2) * 0.5f;
+        float cy = (y1 + y2) * 0.5f;
         float angle = (float) Math.atan2(y2 - y1, x2 - x1);
         float mag = (float) Math.hypot(y2 - y1, x2 - x1);
-        return createWall(world, cx - mag / 2, cy - 0.05f, cx + mag / 2, cy + 0.05f, angle, restitution);
+        return createWall(world, cx - mag * 0.5f, cy - 0.05f, cx + mag * 0.5f, cy + 0.05f, angle, restitution);
     }
 }

@@ -49,7 +49,7 @@ public class AnimatedBackground {
             for (int c = 0; c < imageColumns; c++, index++) {
                 float xPos;
                 if (r % 2 != 0) {
-                    xPos = -imageSize + xSpacing / 2 + xSpacing * c + bounds.x;
+                    xPos = -imageSize + xSpacing * 0.5f + xSpacing * c + bounds.x;
                 } else {
                     xPos = -imageSize + xSpacing * c + bounds.x;
                 }
@@ -64,11 +64,11 @@ public class AnimatedBackground {
             position.x += speed * delta;
             position.y += speed * delta;
             // Verify Right Limit
-            if (position.x >= bounds.x + bounds.width + imageSize / 2) {
+            if (position.x >= bounds.x + bounds.width + imageSize * 0.5f) {
                 position.x = bounds.x - imageSize * 1.5f;
             }
             // Verify Top Limit
-            if (position.y >= bounds.y + bounds.height + imageSize / 4) {
+            if (position.y >= bounds.y + bounds.height + imageSize * 0.25f) {
                 position.y = bounds.y - imageSize * 1.25f;
             }
         }

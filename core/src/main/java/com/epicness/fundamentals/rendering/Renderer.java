@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.OrderedMap;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.epicness.fundamentals.SharedScreen;
 import com.epicness.fundamentals.stuff.SharedStuff;
@@ -70,6 +71,24 @@ public abstract class Renderer<S extends Stuff<?>> {
     protected final void drawArray(Array<? extends Drawable2D> array) {
         for (int i = 0; i < array.size; i++) {
             array.get(i).draw(spriteBatch, shapeDrawer);
+        }
+    }
+
+    protected final void drawDebugArray(Array<? extends Drawable2D> array) {
+        for (int i = 0; i < array.size; i++) {
+            array.get(i).drawDebug(spriteBatch, shapeDrawer);
+        }
+    }
+
+    protected final <T> void drawMap(OrderedMap<T, ? extends Drawable2D> map) {
+        for (int i = 0; i < map.size; i++) {
+            map.get(map.orderedKeys().get(i)).draw(spriteBatch, shapeDrawer);
+        }
+    }
+
+    protected final <T> void drawDebugMap(OrderedMap<T, ? extends Drawable2D> map) {
+        for (int i = 0; i < map.size; i++) {
+            map.get(map.orderedKeys().get(i)).drawDebug(spriteBatch, shapeDrawer);
         }
     }
 
