@@ -8,21 +8,6 @@ public class Plane extends Shape3D<PlaneCreator, PlaneProperties> {
         super(new PlaneCreator(width, height));
     }
 
-    @Override
-    protected void updateDebugLines() {
-        for (int index = 0; index < rotationVertices.length; index++) {
-            int extraIndex = (index + 1) % rotationVertices.length;
-            debugLines[index].set(
-                rotationVertices[index].x + position.x,
-                rotationVertices[index].y + position.y,
-                rotationVertices[index].z + position.z,
-                rotationVertices[extraIndex].x + position.x,
-                rotationVertices[extraIndex].y + position.y,
-                rotationVertices[extraIndex].z + position.z
-            );
-        }
-    }
-
     public float getWidth() {
         return properties.width;
     }

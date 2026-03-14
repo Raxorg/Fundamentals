@@ -16,6 +16,10 @@ public class Constants3D {
     public static final long LIGHTLESS_TEXTURED_ATTRIBUTES = Position | TextureCoordinates;
     public static final long LIGHTED_TEXTURELESS_ATTRIBUTES = Position | Normal;
     public static final long LIGHTLESS_TEXTURELESS_ATTRIBUTES = Position;
+    // Vertex sections
+    public static final int CUBOID_VERTEX_SECTIONS = 6;
+    public static final int CYLINDER_VERTEX_SECTIONS = 5;
+    public static final int PLANE_VERTEX_SECTIONS = 5;
     // Cube
     public static final Vector3 STARTING_CUBE_MIN = new Vector3(-0.5f, -0.5f, -0.5f);
     public static final Vector3 STARTING_CUBE_MAX = new Vector3(0.5f, 0.5f, 0.5f);

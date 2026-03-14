@@ -19,25 +19,30 @@ import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelProperti
 public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperties> {
 
     protected final P properties;
-    private final ModelInstance modelInstance;
+    private final ModelInstance modelInstance, debugInstance;
     protected final Vector3[] rotationVertices;
     private final float[] plainVertices;
     private static final Quaternion QUATERNION_HELPER = new Quaternion();
     protected final Vector3 position;
     private final short[] indices;
-    protected final Line3D[] debugLines;
     private final TextureAttribute textureAttribute;
     private final ColorAttribute colorAttribute;
 
     public Shape3D(M modelCreator) {
         properties = modelCreator.properties;
         Model model = modelCreator.model;
-        modelInstance = new ModelInstance(model);
-        Mesh mesh = model.meshes.first();
+        Model debugModel = modelCreator.debugModel;
         int vertexSections = modelCreator.vertexSections;
 
+        modelInstance = new ModelInstance(model);
+        debugInstance = new ModelInstance(debugModel);
+
+        Mesh mesh = model.meshes.first();
         float[] verticesWithUV = new float[mesh.getNumVertices() * mesh.getVertexSize() / 4];
         mesh.getVertices(verticesWithUV);
+        indices = new short[mesh.getNumIndices()];
+        mesh.getIndices(indices);
+
         rotationVertices = new Vector3[verticesWithUV.length / vertexSections];
         plainVertices = new float[rotationVertices.length * 3];
         for (int index = 0, extraIndex = 0; index < verticesWithUV.length; index += vertexSections, extraIndex++) {
@@ -50,19 +55,11 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
             plainVertices[extraIndex * 3 + 1] = rotationVertices[extraIndex].y;
             plainVertices[extraIndex * 3 + 2] = rotationVertices[extraIndex].z;
         }
+
         position = new Vector3();
-        indices = new short[mesh.getNumIndices()];
-        mesh.getIndices(indices);
-        debugLines = new Line3D[rotationVertices.length];
-        for (int index = 0; index < debugLines.length; index++) {
-            debugLines[index] = new Line3D();
-        }
-        updateDebugLines();
         textureAttribute = new TextureAttribute(TextureAttribute.Diffuse);
         colorAttribute = new ColorAttribute(ColorAttribute.Diffuse);
     }
-
-    protected abstract void updateDebugLines();
 
     public final void draw(ModelBatch modelBatch) {
         modelBatch.render(modelInstance);
@@ -73,9 +70,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
     }
 
     public void drawDebug(ModelBatch modelBatch) {
-        for (int i = 0; i < debugLines.length; i++) {
-            debugLines[i].draw(modelBatch);
-        }
+        modelBatch.render(debugInstance);
     }
 
     public void setSprite(Sprite sprite) {
@@ -111,7 +106,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
             plainVertices[index + 1] += yAmount;
             plainVertices[index + 2] += zAmount;
         }
-        updateDebugLines();
+        debugInstance.transform.set(modelInstance.transform);
     }
 
     public final void translateX(float amount) {
@@ -176,7 +171,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
             plainVertices[index * 3 + 1] = rotationVertices[index].y + position.y;
             plainVertices[index * 3 + 2] = rotationVertices[index].z + position.z;
         }
-        updateDebugLines();
+        debugInstance.transform.set(modelInstance.transform);
     }
 
     public final void rotate(Vector3 rotation) {
