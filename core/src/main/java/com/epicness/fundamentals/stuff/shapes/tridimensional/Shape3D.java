@@ -20,7 +20,6 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
     private final ModelInstance modelInstance;
     protected final Vector3[] rotationVertices;
     private final float[] plainVertices;
-    protected static int index, extraIndex;
     private static final Quaternion QUATERNION_HELPER = new Quaternion();
     protected final Vector3 position;
     private final short[] indices;
@@ -39,7 +38,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
         mesh.getVertices(verticesWithUV);
         rotationVertices = new Vector3[verticesWithUV.length / vertexSections];
         plainVertices = new float[rotationVertices.length * 3];
-        for (index = 0, extraIndex = 0; index < verticesWithUV.length; index += vertexSections, extraIndex++) {
+        for (int index = 0, extraIndex = 0; index < verticesWithUV.length; index += vertexSections, extraIndex++) {
             rotationVertices[extraIndex] = new Vector3(
                 verticesWithUV[index],
                 verticesWithUV[index + 1],
@@ -53,7 +52,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
         indices = new short[mesh.getNumIndices()];
         mesh.getIndices(indices);
         debugLines = new Line3D[rotationVertices.length];
-        for (index = 0; index < debugLines.length; index++) {
+        for (int index = 0; index < debugLines.length; index++) {
             debugLines[index] = new Line3D();
         }
         updateDebugLines();
@@ -105,7 +104,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
     public final void translate(float xAmount, float yAmount, float zAmount) {
         modelInstance.transform.translate(xAmount, yAmount, zAmount);
         position.add(xAmount, yAmount, zAmount);
-        for (index = 0; index < plainVertices.length; index += 3) {
+        for (int index = 0; index < plainVertices.length; index += 3) {
             plainVertices[index] += xAmount;
             plainVertices[index + 1] += yAmount;
             plainVertices[index + 2] += zAmount;
@@ -167,7 +166,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
         modelInstance.transform.rotate(Vector3.X, xDegrees);
         modelInstance.transform.rotate(Vector3.Y, yDegrees);
         modelInstance.transform.rotate(Vector3.Z, zDegrees);
-        for (index = 0; index < rotationVertices.length; index++) {
+        for (int index = 0; index < rotationVertices.length; index++) {
             rotationVertices[index].rotate(Vector3.X, xDegrees);
             rotationVertices[index].rotate(Vector3.Y, yDegrees);
             rotationVertices[index].rotate(Vector3.Z, zDegrees);

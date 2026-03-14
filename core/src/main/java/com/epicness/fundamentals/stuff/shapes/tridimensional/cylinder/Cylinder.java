@@ -10,6 +10,7 @@ public class Cylinder extends Shape3D<CylinderCreator, CylinderProperties> {
 
     @Override
     protected void updateDebugLines() {
+        int index, extraIndex;
         for (index = 0; index < rotationVertices.length / 2; index++) {
             extraIndex = (index + 2) % rotationVertices.length;
             debugLines[index].set(

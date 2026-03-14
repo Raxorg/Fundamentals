@@ -10,8 +10,8 @@ public class Cuboid extends Shape3D<CuboidCreator, CuboidProperties> {
 
     @Override
     protected void updateDebugLines() {
-        for (index = 0; index < rotationVertices.length; index++) {
-            extraIndex = (index + 1) % rotationVertices.length;
+        for (int index = 0; index < rotationVertices.length; index++) {
+            int extraIndex = (index + 1) % rotationVertices.length;
             debugLines[index].set(
                 rotationVertices[index].x + position.x,
                 rotationVertices[index].y + position.y,
