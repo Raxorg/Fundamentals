@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes.tridimensional;
+package com.epicness.fundamentals.stuff.shapes.tridimensional.model;
 
 import static com.badlogic.gdx.graphics.GL20.GL_NONE;
 import static com.epicness.fundamentals.constants.Constants3D.MATERIAL_ID;

@@ -3,7 +3,7 @@ package com.epicness.fundamentals.stuff.shapes.tridimensional.plane;
 import static com.epicness.fundamentals.constants.Constants3D.LIGHTLESS_TEXTURED_ATTRIBUTES;
 
 import com.badlogic.gdx.graphics.g3d.Material;
-import com.epicness.fundamentals.stuff.shapes.tridimensional.ModelProperties;
+import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelProperties;
 
 public class PlaneProperties extends ModelProperties {
 

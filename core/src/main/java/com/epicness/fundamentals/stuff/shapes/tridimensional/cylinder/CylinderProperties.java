@@ -2,7 +2,7 @@ package com.epicness.fundamentals.stuff.shapes.tridimensional.cylinder;
 
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.epicness.fundamentals.constants.Constants3D;
-import com.epicness.fundamentals.stuff.shapes.tridimensional.ModelProperties;
+import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelProperties;
 
 public class CylinderProperties extends ModelProperties {
 

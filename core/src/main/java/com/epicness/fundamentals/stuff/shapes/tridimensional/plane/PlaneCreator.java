@@ -1,7 +1,7 @@
 package com.epicness.fundamentals.stuff.shapes.tridimensional.plane;
 
 import com.badlogic.gdx.graphics.g3d.Model;
-import com.epicness.fundamentals.stuff.shapes.tridimensional.ModelCreator;
+import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelCreator;
 
 public class PlaneCreator extends ModelCreator<PlaneProperties> {
 

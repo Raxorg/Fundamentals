@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes.tridimensional;
+package com.epicness.fundamentals.stuff.shapes.tridimensional.model;
 
 import com.badlogic.gdx.graphics.g3d.Model;
 

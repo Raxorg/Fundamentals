@@ -1,4 +1,4 @@
-package com.epicness.fundamentals.stuff.shapes.tridimensional;
+package com.epicness.fundamentals.stuff.shapes.tridimensional.model;
 
 import static com.badlogic.gdx.graphics.VertexAttributes.Usage.Position;
 import static com.badlogic.gdx.graphics.VertexAttributes.Usage.TextureCoordinates;

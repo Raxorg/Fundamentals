@@ -13,6 +13,8 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.TextureAttribute;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
+import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelCreator;
+import com.epicness.fundamentals.stuff.shapes.tridimensional.model.ModelProperties;
 
 public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperties> {
 
@@ -29,7 +31,7 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
 
     public Shape3D(M modelCreator) {
         properties = modelCreator.properties;
-        Model model = modelCreator.build(properties);
+        Model model = modelCreator.model;
         modelInstance = new ModelInstance(model);
         Mesh mesh = model.meshes.first();
         int vertexSections = modelCreator.vertexSections;
