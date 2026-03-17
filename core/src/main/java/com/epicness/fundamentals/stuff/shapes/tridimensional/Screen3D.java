@@ -1,11 +1,11 @@
 package com.epicness.fundamentals.stuff.shapes.tridimensional;
 
-import static com.badlogic.gdx.graphics.Color.CLEAR;
 import static com.badlogic.gdx.graphics.GL20.GL_ONE;
 import static com.badlogic.gdx.graphics.GL20.GL_ONE_MINUS_SRC_ALPHA;
 import static com.badlogic.gdx.graphics.GL20.GL_SRC_ALPHA;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -25,6 +25,7 @@ public class Screen3D<S extends Shape3D<?, ?>> {
     private final Sprite bufferSprite;
     private Drawable2D drawable2D;
     private boolean flipX;
+    private final Color clearColor;
 
     public Screen3D(S shape, float offsetX2D, float offsetY2D, float cameraWidth, float cameraHeight, Drawable2D drawable2D) {
         this.shape = shape;
@@ -36,6 +37,7 @@ public class Screen3D<S extends Shape3D<?, ?>> {
         bufferSprite = new Sprite();
         bufferSprite.setSize(cameraWidth, cameraHeight);
         this.drawable2D = drawable2D;
+        clearColor = new Color();
     }
 
     public Screen3D(S shape, float offsetX2D, float offsetY2D, float cameraWidth, float cameraHeight) {
@@ -58,7 +60,7 @@ public class Screen3D<S extends Shape3D<?, ?>> {
         shapeDrawer.update();
         // Render to frame buffer
         frameBuffer.bind();
-        ScreenUtils.clear(CLEAR);
+        ScreenUtils.clear(clearColor);
     }
 
     private void end(SpriteBatch spriteBatch) {
@@ -88,5 +90,9 @@ public class Screen3D<S extends Shape3D<?, ?>> {
 
     public void setFlipX(boolean flipX) {
         this.flipX = flipX;
+    }
+
+    public void setClearColor(Color color) {
+        clearColor.set(color);
     }
 }
