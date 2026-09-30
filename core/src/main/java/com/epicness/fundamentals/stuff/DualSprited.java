@@ -102,6 +102,10 @@ public class DualSprited implements Buttonable, Transformable {
 
     @Override
     public float getWidth() {
+        if (background.getWidth() != foreground.getWidth())
+            throw new UnsupportedOperationException(
+                "Can't determine which width to return, get it from the individual components"
+            );
         return background.getWidth();
     }
 
@@ -141,6 +145,11 @@ public class DualSprited implements Buttonable, Transformable {
         rotateForeground(degrees);
     }
 
+    public void setOriginBasedX(float x) {
+        background.setOriginBasedPosition(x, background.getY() + background.getOriginY());
+        foreground.setOriginBasedPosition(x, foreground.getY() + foreground.getOriginY());
+    }
+
     public void setBackgroundOriginBasedPosition(float x, float y) {
         background.setOriginBasedPosition(x, y);
     }
@@ -150,8 +159,8 @@ public class DualSprited implements Buttonable, Transformable {
     }
 
     public void setOriginBasedPosition(float x, float y) {
-        background.setOriginBasedPosition(x, y);
-        foreground.setOriginBasedPosition(x, y);
+        setBackgroundOriginBasedPosition(x, y);
+        setForegroundOriginBasedPosition(x, y);
     }
 
     public void setOriginBasedPosition(Vector2 position) {
@@ -213,6 +222,16 @@ public class DualSprited implements Buttonable, Transformable {
     public void setScale(float scale) {
         setBackgroundScale(scale);
         setForegroundScale(scale);
+    }
+
+    public void setOriginX(float x) {
+        background.setOrigin(x, background.getOriginY());
+        foreground.setOrigin(x, foreground.getOriginY());
+    }
+
+    public void setOriginY(float y) {
+        background.setOrigin(background.getOriginX(), y);
+        foreground.setOrigin(foreground.getOriginX(), y);
     }
 
     public void setOrigin(float x, float y) {
