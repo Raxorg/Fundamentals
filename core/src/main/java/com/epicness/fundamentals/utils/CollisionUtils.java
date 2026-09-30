@@ -15,12 +15,12 @@ import com.epicness.fundamentals.stuff.shapes.tridimensional.plane.Plane;
 
 public class CollisionUtils {
 
-    public static boolean overlaps(float x, float y, float width, float height, Rectangle r) {
+    public static boolean overlapsInclusive(float x, float y, float width, float height, Rectangle r) {
         return x <= r.x + r.width && x + width >= r.x && y <= r.y + r.height && y + height >= r.y;
     }
 
-    public static boolean overlaps(Rectangle a, Rectangle b) {
-        return overlaps(a.x, a.y, a.width, a.height, b);
+    public static boolean overlapsInclusive(Rectangle a, Rectangle b) {
+        return overlapsInclusive(a.x, a.y, a.width, a.height, b);
     }
 
     public static boolean overlaps (CirclePlus a, CirclePlus b) {
