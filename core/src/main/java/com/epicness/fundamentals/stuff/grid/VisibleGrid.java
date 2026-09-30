@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.ColRowSupplier;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
-import com.epicness.fundamentals.stuff.shapes.bidimensional.Drawable2D;
+import com.epicness.fundamentals.stuff.interfaces.Drawable2D;
 
 public abstract class VisibleGrid<T extends Drawable2D & Movable> extends GenericGrid<T> implements Movable, Drawable2D {
 

@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.epicness.fundamentals.SharedScreen;
 import com.epicness.fundamentals.stuff.SharedStuff;
 import com.epicness.fundamentals.stuff.Stuff;
-import com.epicness.fundamentals.stuff.shapes.bidimensional.Drawable2D;
+import com.epicness.fundamentals.stuff.interfaces.Drawable2D;
 
 public abstract class Renderer<S extends Stuff<?>> {
 
