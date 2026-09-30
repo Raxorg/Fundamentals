@@ -94,6 +94,10 @@ public class SpritePlus implements Buttonable, SpriteBatchDrawable, Transformabl
         sprite.rotate(degrees);
     }
 
+    public void setOriginBasedX(float x) {
+        sprite.setOriginBasedPosition(x, getOriginBasedY());
+    }
+
     public void setOriginBasedPosition(float x, float y) {
         sprite.setOriginBasedPosition(x, y);
     }
@@ -116,6 +120,14 @@ public class SpritePlus implements Buttonable, SpriteBatchDrawable, Transformabl
 
     public Vector2 getOriginBasedCenter(Vector2 result) {
         return result.set(getOriginBasedX(), getOriginBasedY());
+    }
+
+    public float getScaleX() {
+        return sprite.getScaleX();
+    }
+
+    public float getScaleY() {
+        return sprite.getScaleY();
     }
 
     public Vector2 getScale(Vector2 result) {
@@ -184,6 +196,10 @@ public class SpritePlus implements Buttonable, SpriteBatchDrawable, Transformabl
 
     public void setColor(Color color) {
         sprite.setColor(color);
+    }
+
+    public void setColor(float r, float g, float b, float a) {
+        sprite.setColor(r, g, b, a);
     }
 
     public void useBilinearFilter() {
