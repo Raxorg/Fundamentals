@@ -44,7 +44,7 @@ public class NinePatchedText implements Buttonable {
 
     public void setSize(float width, float height) {
         boundingBox.setSize(width, height);
-        label.setWidth(width);
+        label.setTargetWidth(width);
         label.setY(boundingBox.y + boundingBox.height * 0.5f);
     }
 }

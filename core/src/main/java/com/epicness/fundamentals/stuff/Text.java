@@ -1,5 +1,8 @@
 package com.epicness.fundamentals.stuff;
 
+import static com.badlogic.gdx.utils.Align.center;
+import static com.badlogic.gdx.utils.Align.left;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,20 +17,19 @@ import com.epicness.fundamentals.utils.TextUtils;
 public class Text implements Buttonable, SpriteBatchDrawable, Movable {
 
     private final BitmapFont font;
-    private String text;
+    private String text, truncate;
     private boolean verticallyCentered, wrap;
-    private float yOffset;
+    private float xOffset, yOffset, targetWidth;
     private int hAlign;
-    private String truncate;
     private final Rectangle bounds;
     private final Color color;
 
     public Text(BitmapFont font, String text) {
         this.font = font;
         this.text = text;
-        hAlign = Align.left;
+        hAlign = left;
         bounds = new Rectangle();
-        bounds.width = 500f;
+        targetWidth = 500f;
         color = new Color(1f, 1f, 1f, 1f);
         updateBounds();
     }
@@ -46,7 +48,7 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
             bounds.y + yOffset,
             0,
             text.length(),
-            bounds.width,
+            targetWidth,
             hAlign,
             wrap,
             truncate
@@ -56,16 +58,24 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     @Override
     public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.rectangle(
-            bounds.x,
+            bounds.x + xOffset,
             bounds.y + yOffset,
             bounds.width,
+            -bounds.height
+        );
+        shapeDrawer.rectangle(
+            bounds.x,
+            bounds.y + yOffset,
+            targetWidth,
             -bounds.height
         );
     }
 
     @Override
     public boolean contains(float x, float y) {
-        return bounds.contains(x, y);
+        float textX = bounds.x + xOffset;
+        return x >= textX && x <= textX + bounds.width &&
+            y >= bounds.y && y <= bounds.y + bounds.height;
     }
 
     @Override
@@ -106,15 +116,18 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     }
 
     public void hAlignLeft() {
-        hAlign = Align.left;
+        hAlign = left;
+        xOffset = 0f;
     }
 
     public void hAlignCenter() {
         hAlign = Align.center;
+        xOffset = (targetWidth - bounds.width) * 0.5f;
     }
 
     public void hAlignRight() {
         hAlign = Align.right;
+        xOffset = targetWidth - bounds.width;
     }
 
     public void setVerticallyCentered(boolean centered) {
@@ -124,6 +137,7 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
 
     public void setWrap(boolean wrap) {
         this.wrap = wrap;
+        updateBounds();
     }
 
     public String getTruncate() {
@@ -152,24 +166,27 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
         this.color.set(color);
     }
 
+    public float getTargetWidth() {
+        return targetWidth;
+    }
+
+    public void setTargetWidth(float width) {
+        targetWidth = width;
+        updateBounds();
+    }
+
     public float getWidth() {
         return bounds.width;
     }
 
-    public void setWidth(float width) {
-        bounds.width = width;
-    }
-
-    public float getPlainWidth() {
-        return TextUtils.getTextWidth(this);
-    }
-
     public float getHeight() {
-        return TextUtils.getTextHeight(this);
+        return bounds.height;
     }
 
     private void updateBounds() {
+        bounds.width = TextUtils.getTextWidth(this);
         bounds.height = TextUtils.getTextHeight(this);
+        xOffset = hAlign == left ? 0f : hAlign == center ? (targetWidth - bounds.width) * 0.5f : targetWidth - bounds.width;
         yOffset = verticallyCentered ? bounds.height * 0.5f : 0f;
     }
 }

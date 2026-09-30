@@ -43,7 +43,7 @@ public class TextUtils {
         return getTextWidth(
             text.getFont(),
             text.getText(),
-            text.getWidth(),
+            text.getTargetWidth(),
             text.getHAlign(),
             true,
             text.getTruncate());
@@ -62,7 +62,7 @@ public class TextUtils {
         return getTextHeight(
             text.getFont(),
             text.getText(),
-            text.getWidth(),
+            text.getTargetWidth(),
             text.getHAlign(),
             true,
             text.getTruncate());

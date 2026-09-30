@@ -76,7 +76,7 @@ public class IconedSpritedText implements Buttonable, Movable {
 
     public void setSize(float width, float height) {
         background.setSize(width, height);
-        label.setWidth(width - height);
+        label.setTargetWidth(width - height);
         label.setY(background.getY() + height * 0.5f);
         icon.setSize(height * 0.65f);
         icon.setX(background.getX() + width - height * 0.5f - icon.getWidth() * 0.5f);
