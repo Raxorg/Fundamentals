@@ -1,7 +1,6 @@
 package com.epicness.fundamentals.stuff.shapes.tridimensional.model;
 
-import static com.badlogic.gdx.graphics.VertexAttributes.Usage.Position;
-import static com.badlogic.gdx.graphics.VertexAttributes.Usage.TextureCoordinates;
+import static com.epicness.fundamentals.constants.Constants3D.LIGHTLESS_TEXTURED_ATTRIBUTES;
 
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g3d.Material;
@@ -30,7 +29,7 @@ public class ModelBuilderPlus extends ModelBuilder {
 
     public Model createCylinder(float width, float height, float depth, int divisions, final Material material,
                                 float angleFrom, float angleTo) {
-        return createCylinder(width, height, depth, divisions, material, Position | TextureCoordinates, angleFrom, angleTo);
+        return createCylinder(width, height, depth, divisions, material, LIGHTLESS_TEXTURED_ATTRIBUTES, angleFrom, angleTo);
     }
 
     public Model createCylinder(float width, float height, float depth, int divisions, final Material material) {

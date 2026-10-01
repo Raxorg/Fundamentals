@@ -8,7 +8,6 @@ public class CuboidProperties extends ModelProperties {
 
     public final float width, height, depth;
 
-
     public CuboidProperties(float width, float height, float depth, Material material, long attributes) {
         super(material, attributes);
         this.width = width;
