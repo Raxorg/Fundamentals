@@ -21,6 +21,7 @@ public class CylinderCreator extends ModelCreator<CylinderProperties> {
             properties.depth,
             properties.divisions,
             properties.material,
+            properties.attributes,
             properties.angleFrom,
             properties.angleTo
         );

@@ -121,6 +121,10 @@ public abstract class Shape3D<M extends ModelCreator<P>, P extends ModelProperti
         translate(0f, 0f, amount);
     }
 
+    public final void translateXY(float xAmount, float yAmount) {
+        translate(xAmount, yAmount, 0f);
+    }
+
     public final void setX(float x) {
         translateX(x - getX());
     }

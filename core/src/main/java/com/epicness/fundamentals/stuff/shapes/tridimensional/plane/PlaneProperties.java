@@ -15,11 +15,23 @@ public class PlaneProperties extends ModelProperties {
         this.height = height;
     }
 
+    public PlaneProperties(float width, float height, Material material) {
+        this(width, height, material, LIGHTLESS_TEXTURED_ATTRIBUTES);
+    }
+
     public PlaneProperties(float width, float height) {
         this(
             width, height,
             createDefaultMaterial(),
             LIGHTLESS_TEXTURED_ATTRIBUTES
         );
+    }
+
+    public PlaneProperties(Material material) {
+        this(5f, 5f, material);
+    }
+
+    public PlaneProperties() {
+        this(5f, 5f);
     }
 }

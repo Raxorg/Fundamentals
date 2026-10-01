@@ -4,6 +4,10 @@ import com.epicness.fundamentals.stuff.shapes.tridimensional.Shape3D;
 
 public class Plane extends Shape3D<PlaneCreator, PlaneProperties> {
 
+    public Plane(PlaneCreator creator) {
+        super(creator);
+    }
+
     public Plane(float width, float height) {
         super(new PlaneCreator(width, height));
     }
