@@ -14,9 +14,13 @@ public class SpritedText implements Buttonable, Movable {
 
     public SpritedText(Sprite backgroundSprite, BitmapFont font) {
         background = new Sprite(backgroundSprite);
+
         label = new Text(font);
+        label.setX(background.getX());
+        label.setY(background.getY() + background.getHeight() * 0.5f);
         label.hAlignCenter();
         label.setVerticallyCentered(true);
+        label.setTargetWidth(background.getWidth());
     }
 
     public void draw(SpriteBatch spriteBatch) {
@@ -51,17 +55,6 @@ public class SpritedText implements Buttonable, Movable {
         label.translateY(amount);
     }
 
-    @Override
-    public void setY(float y) {
-        background.setY(y);
-        label.setY(y + background.getHeight() * 0.5f);
-    }
-
-    public void setPosition(float x, float y) {
-        background.setPosition(x, y);
-        label.setPosition(x, y + background.getHeight() * 0.5f);
-    }
-
     public float getWidth() {
         return background.getWidth();
     }
@@ -78,7 +71,6 @@ public class SpritedText implements Buttonable, Movable {
         background.setSize(width, height);
         label.setY(background.getY() + height * 0.5f);
         label.setTargetWidth(width);
-        centerTextOnTargetWidth();
     }
 
     public Color getBackgroundColor() {
@@ -104,15 +96,10 @@ public class SpritedText implements Buttonable, Movable {
 
     public void setText(String text) {
         label.setText(text);
-        centerTextOnTargetWidth();
     }
 
     public void setTextTargetWidth(float width) {
         label.setTargetWidth(width);
-    }
-
-    private void centerTextOnTargetWidth() {
-        label.setX(background.getX() + background.getWidth() * 0.5f - label.getWidth() * 0.5f);
     }
 
     public float getFontScale() {
