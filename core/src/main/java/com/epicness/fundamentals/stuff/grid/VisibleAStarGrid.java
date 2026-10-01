@@ -2,8 +2,8 @@ package com.epicness.fundamentals.stuff.grid;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
-import com.epicness.fundamentals.stuff.interfaces.Movable;
 import com.epicness.fundamentals.stuff.interfaces.Drawable2D;
+import com.epicness.fundamentals.stuff.interfaces.Movable;
 
 public abstract class VisibleAStarGrid<T extends Drawable2D & Movable> extends AStarGrid<T> implements Movable, Drawable2D {
 
