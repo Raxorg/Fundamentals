@@ -15,7 +15,7 @@ public class Line implements ShapeDrawable, Movable {
 
     private final Vector2 a, b;
     private float angleDeg;
-    public final float length;
+    private final float length;
     private final Color colorA, colorB;
     public float thickness;
 
