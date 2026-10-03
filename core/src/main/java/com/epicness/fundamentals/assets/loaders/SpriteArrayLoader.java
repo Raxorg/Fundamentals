@@ -28,7 +28,7 @@ public class SpriteArrayLoader extends AsynchronousAssetLoader<Sprite[], SpriteA
         int frameHeight;
     }
 
-    SpriteArrayLoaderInfo info = new SpriteArrayLoaderInfo();
+    private final SpriteArrayLoaderInfo info = new SpriteArrayLoaderInfo();
 
     public SpriteArrayLoader(FileHandleResolver resolver) {
         super(resolver);
@@ -70,7 +70,6 @@ public class SpriteArrayLoader extends AsynchronousAssetLoader<Sprite[], SpriteA
 
     @Override
     public Sprite[] loadSync(AssetManager manager, String fileName, FileHandle file, SpriteArrayParameter parameter) {
-        if (info == null) return null;
         Texture texture = info.texture;
         if (texture != null) {
             texture.load(info.data);

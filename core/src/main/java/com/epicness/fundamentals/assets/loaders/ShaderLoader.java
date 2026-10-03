@@ -1,5 +1,7 @@
 package com.epicness.fundamentals.assets.loaders;
 
+import static com.epicness.fundamentals.assets.loaders.ShaderLoader.ShaderParameter;
+
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
@@ -10,7 +12,7 @@ import com.badlogic.gdx.utils.Array;
 import com.epicness.fundamentals.assets.Shader;
 
 @SuppressWarnings("rawtypes")
-public class ShaderLoader extends SynchronousAssetLoader<Shader, ShaderLoader.ShaderParameter> {
+public class ShaderLoader extends SynchronousAssetLoader<Shader, ShaderParameter> {
 
     public ShaderLoader(FileHandleResolver resolver) {
         super(resolver);

@@ -14,7 +14,6 @@ import com.epicness.fundamentals.assets.loaders.ExplicitMusicLoader.MusicParamet
 @SuppressWarnings("rawtypes")
 public class ExplicitMusicLoader extends AsynchronousAssetLoader<Music, MusicParameter> {
 
-
     private Music music;
 
     public ExplicitMusicLoader(FileHandleResolver resolver) {

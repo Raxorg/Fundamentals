@@ -1,6 +1,5 @@
 package com.epicness.fundamentals.assets.loaders;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
@@ -36,12 +35,12 @@ public class ShaderProgramLoader extends SynchronousAssetLoader<ShaderProgram, S
         Array<AssetDescriptor> dependencies = new Array<>();
         try (BufferedReader reader = file.reader(128)) {
             String line = reader.readLine();
-            FileHandle vertexHandle = Gdx.files.internal(line.split(" ")[1]);
+            FileHandle vertexHandle = file.parent().child(line.split(" ")[1]);
             vertexPath = vertexHandle.path();
             dependencies.add(new AssetDescriptor<>(vertexHandle, Shader.class));
 
             line = reader.readLine();
-            FileHandle fragmentHandle = Gdx.files.internal(line.split(" ")[1]);
+            FileHandle fragmentHandle = file.parent().child(line.split(" ")[1]);
             fragmentPath = fragmentHandle.path();
             dependencies.add(new AssetDescriptor<>(fragmentHandle, Shader.class));
         } catch (Exception ex) {
