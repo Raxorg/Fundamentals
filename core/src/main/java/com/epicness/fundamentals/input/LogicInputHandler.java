@@ -1,6 +1,7 @@
 package com.epicness.fundamentals.input;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.controllers.Controller;
 import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.logic.Logic;
 import com.epicness.fundamentals.logic.LogicHandler;
@@ -13,8 +14,12 @@ import com.epicness.fundamentals.stuff.Stuff;
 public abstract class LogicInputHandler<G extends Game, A extends Assets, L extends Logic, R extends Renderer<S>, S extends Stuff<A>>
     extends LogicHandler<G, A, L, R, S> {
 
-    public final void register() {
+    public final void registerForInput() {
         input.addInputHandler(this);
+    }
+
+    public final void unregisterForInput() {
+        input.removeInputHandler(this);
     }
 
     protected void consumeInput() {
@@ -64,5 +69,21 @@ public abstract class LogicInputHandler<G extends Game, A extends Assets, L exte
     }
 
     public void keyTyped(char character) {
+    }
+
+    // Controller-based input
+    public void connected(Controller controller) {
+    }
+
+    public void disconnected(Controller controller) {
+    }
+
+    public void buttonDown(Controller controller, int buttonCode) {
+    }
+
+    public void buttonUp(Controller controller, int buttonCode) {
+    }
+
+    public void axisMoved(Controller controller, int axisCode, float value) {
     }
 }

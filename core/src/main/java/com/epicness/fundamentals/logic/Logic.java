@@ -28,7 +28,7 @@ public abstract class Logic {
         for (LogicHandler logicHandler : logicHandlers) {
             logicHandler.init();
             if (logicHandler instanceof LogicInputHandler)
-                ((LogicInputHandler) logicHandler).register();
+                ((LogicInputHandler) logicHandler).registerForInput();
         }
     }
 
