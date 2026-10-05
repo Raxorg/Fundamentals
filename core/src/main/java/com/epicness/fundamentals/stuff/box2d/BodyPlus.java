@@ -34,6 +34,21 @@ public class BodyPlus implements Movable, Rotatable {
         shape.dispose();
     }
 
+    public BodyPlus(World world, BodyType type, Shape... shapes) {
+        this.world = world;
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = type;
+        body = world.createBody(bodyDef);
+
+        FixtureDef fixtureDef = new FixtureDef();
+        for (int i = 0; i < shapes.length; i++) {
+            fixtureDef.shape = shapes[i];
+            body.createFixture(fixtureDef);
+            shapes[i].dispose();
+        }
+    }
+
     @Override
     public float getX() {
         return body.getPosition().x;
