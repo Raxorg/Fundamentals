@@ -2,6 +2,7 @@ package com.epicness.fundamentals.utils;
 
 import com.badlogic.gdx.utils.SnapshotArray;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ArrayUtils {
@@ -14,9 +15,23 @@ public class ArrayUtils {
         snapArray.end();
     }
 
+    public static <T> void loopArray(SnapshotArray<T> snapArray, BiConsumer<T, Integer> consumer) {
+        T[] array = snapArray.begin();
+        for (int i = 0, n = snapArray.size; i < n; i++) {
+            consumer.accept(array[i], i);
+        }
+        snapArray.end();
+    }
+
     public static <T> void loopArray(T[] array, Consumer<T> consumer) {
         for (int i = 0; i < array.length; i++) {
             consumer.accept(array[i]);
+        }
+    }
+
+    public static <T> void loopArray(T[] array, BiConsumer<T, Integer> consumer) {
+        for (int i = 0; i < array.length; i++) {
+            consumer.accept(array[i], i);
         }
     }
 
