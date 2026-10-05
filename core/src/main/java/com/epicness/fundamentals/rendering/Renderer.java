@@ -68,6 +68,12 @@ public abstract class Renderer<S extends Stuff<?>> {
         return shapeDrawer;
     }
 
+    protected final void drawArray(Drawable2D[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i].draw(spriteBatch, shapeDrawer);
+        }
+    }
+
     protected final void drawArray(Array<? extends Drawable2D> array) {
         for (int i = 0; i < array.size; i++) {
             array.get(i).draw(spriteBatch, shapeDrawer);
