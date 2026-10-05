@@ -13,7 +13,7 @@ public class Random {
         return new Color(r, g, b, 1f);
     }
 
-    public static <T> T fromArray(T[] array) {
+    public static <T> T randomElement(T[] array) {
         return array[MathUtils.random(array.length - 1)];
     }
 
