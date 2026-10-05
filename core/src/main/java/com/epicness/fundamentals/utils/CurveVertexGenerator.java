@@ -5,10 +5,6 @@ import com.badlogic.gdx.math.Vector2;
 /**
  * Utility class to generate vertices for various curve shapes,
  * suitable for use with Box2D ChainShapes.
- * <p>
- * Assumes generation in pixel coordinates, intended to be converted
- * to Box2D meters later. If you want direct meter generation,
- * pass in meter values and set PIXELS_TO_METERS to 1.0f.
  */
 public class CurveVertexGenerator {
 
@@ -37,7 +33,7 @@ public class CurveVertexGenerator {
             float pixelX = startX + t * curveWidth;
 
             // Map t from [0, 1] to xNormalized [-1, 1] for y = -x^2 shape
-            float xNormalized = (t * 2.0f) - 1.0f;
+            float xNormalized = (t * 2f) - 1f;
             // Parabolic function (yNormalized ranges from -1 at ends to 0 at peak)
             float yNormalized = -(xNormalized * xNormalized);
 
@@ -113,11 +109,11 @@ public class CurveVertexGenerator {
 
         for (int i = 0; i <= numSegments; i++) {
             float t = (float) i / numSegments; // Parameter [0, 1]
-            float oneMinusT = 1.0f - t;
+            float oneMinusT = 1f - t;
 
             // Quadratic Bézier formula: B(t) = (1-t)^2 * P0 + 2*(1-t)*t*P1 + t^2*P2
-            float pixelX = (oneMinusT * oneMinusT * p0.x) + (2.0f * oneMinusT * t * p1.x) + (t * t * p2.x);
-            float pixelY = (oneMinusT * oneMinusT * p0.y) + (2.0f * oneMinusT * t * p1.y) + (t * t * p2.y);
+            float pixelX = (oneMinusT * oneMinusT * p0.x) + (2f * oneMinusT * t * p1.x) + (t * t * p2.x);
+            float pixelY = (oneMinusT * oneMinusT * p0.y) + (2f * oneMinusT * t * p1.y) + (t * t * p2.y);
 
             // Apply scale factor
             vertices[i] = new Vector2(pixelX * scaleFactor, pixelY * scaleFactor);
@@ -142,7 +138,7 @@ public class CurveVertexGenerator {
         // Calculate the control point for a symmetric curve reaching peakY
         // P1 = (midX, 2 * peakY - baseY) - derived from setting B(0.5).y = peakY
         float controlX = (startX + endX) * 0.5f;
-        float controlY = 2.0f * peakY - baseY;
+        float controlY = 2f * peakY - baseY;
         return createQuadraticBezierVertices(startX, baseY, endX, baseY, controlX, controlY, numSegments, scaleFactor);
     }
 }
