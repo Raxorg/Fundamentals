@@ -31,7 +31,7 @@ public class SharedResources {
 
         assets.queueAssetLoading();
         assets.finishLoading();
-        assets.initializeAssets();
+        assets.initAssets();
         stuff.initializeStuff();
     }
 

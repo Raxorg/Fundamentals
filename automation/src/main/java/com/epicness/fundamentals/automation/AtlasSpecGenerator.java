@@ -24,7 +24,7 @@ public class AtlasSpecGenerator {
 
         fieldSpecs.add(FieldSpec.builder(PNG.type, file.nameWithoutExtension() + "Atlas", PRIVATE).build());
 
-        try (BufferedReader reader = file.reader(128);) {
+        try (BufferedReader reader = file.reader(128)) {
             String line;
             Set<String> animationNames = new HashSet<>();
             do {
@@ -65,7 +65,7 @@ public class AtlasSpecGenerator {
         String constant = file.nameWithoutExtension().toUpperCase() + "_ATLAS";
         initializerStatements.add(CodeBlock.of("$L = new Sprite(get($L).getTextures().first())", atlasName, constant));
 
-        try (BufferedReader reader = file.reader(128);) {
+        try (BufferedReader reader = file.reader(128)) {
             String line;
             Set<String> animationNames = new HashSet<>();
             do {
@@ -117,7 +117,7 @@ public class AtlasSpecGenerator {
             .addStatement("return $L", atlasName)
             .build());
 
-        try (BufferedReader reader = file.reader(128);) {
+        try (BufferedReader reader = file.reader(128)) {
             String line;
             Set<String> animationNames = new HashSet<>();
             do {

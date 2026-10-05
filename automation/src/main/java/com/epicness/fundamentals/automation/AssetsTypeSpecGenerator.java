@@ -2,6 +2,7 @@ package com.epicness.fundamentals.automation;
 
 import static com.epicness.fundamentals.automation.Extension.ATLAS;
 import static javax.lang.model.element.Modifier.PRIVATE;
+import static javax.lang.model.element.Modifier.PROTECTED;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 import com.badlogic.gdx.assets.AssetDescriptor;
@@ -61,7 +62,7 @@ public class AssetsTypeSpecGenerator {
     private static MethodSpec initializeAssetsSpec(List<AssetDescriptor<?>> descriptors) {
         MethodSpec.Builder builder = MethodSpec.methodBuilder("initializeAssets")
             .addAnnotation(Override.class)
-            .addModifiers(PUBLIC);
+            .addModifiers(PROTECTED);
 
         descriptors.forEach(descriptor -> {
             if (descriptor.type == ATLAS.type) {

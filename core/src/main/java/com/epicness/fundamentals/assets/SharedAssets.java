@@ -42,7 +42,7 @@ public class SharedAssets extends Assets {
     }
 
     @Override
-    public void initializeAssets() {
+    protected void initializeAssets() {
         spritesLinearAtlas = new Sprite(get(SPRITESLINEAR_ATLAS).getTextures().first());
         circle = get(SPRITESLINEAR_ATLAS).createSprite("circle");
         dot = get(SPRITESLINEAR_ATLAS).createSprite("dot");
