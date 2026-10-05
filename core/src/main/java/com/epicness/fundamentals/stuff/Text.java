@@ -19,7 +19,7 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     private final BitmapFont font;
     private String text, truncate;
     private boolean verticallyCentered, wrap;
-    private float xOffset, yOffset, targetWidth;
+    private float xOffset, yOffset, targetWidth, scale;
     private int hAlign;
     private final Rectangle bounds;
     private final Color color;
@@ -27,9 +27,10 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     public Text(BitmapFont font, String text) {
         this.font = font;
         this.text = text;
+        targetWidth = 500f;
+        scale = 1f;
         hAlign = left;
         bounds = new Rectangle();
-        targetWidth = 500f;
         color = new Color(1f, 1f, 1f, 1f);
         updateBounds();
     }
@@ -41,6 +42,8 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     @Override
     public void draw(SpriteBatch spriteBatch) {
         font.setColor(color);
+        font.getData().setScale(scale);
+
         font.draw(
             spriteBatch,
             text,
@@ -150,11 +153,11 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     }
 
     public float getScale() {
-        return font.getScaleX();
+        return scale;
     }
 
     public void setScale(float scale) {
-        font.getData().setScale(scale);
+        this.scale = scale;
         updateBounds();
     }
 
@@ -184,9 +187,15 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     }
 
     private void updateBounds() {
+        float originalScale = font.getScaleX();
+        font.getData().setScale(scale);
         bounds.width = TextUtils.getTextWidth(this);
         bounds.height = TextUtils.getTextHeight(this);
-        xOffset = hAlign == left ? 0f : hAlign == center ? (targetWidth - bounds.width) * 0.5f : targetWidth - bounds.width;
+        font.getData().setScale(originalScale);
+
+        xOffset = hAlign == left ? 0f :
+            hAlign == center ? (targetWidth - bounds.width) * 0.5f :
+            targetWidth - bounds.width;
         yOffset = verticallyCentered ? bounds.height * 0.5f : 0f;
     }
 }

@@ -43,7 +43,6 @@ public class FundamentalsTest extends Game {
         shapeDrawerPlus = new ShapeDrawerPlus(spriteBatch, pixel);
 
         font = new BitmapFont(Gdx.files.internal("fundamentals/fonts/pixelFont.fnt"));
-        font.getData().setScale(4f);
 
         gradientFont = new GradientFont("Gradient Font", 20f, 500f, RED, BLUE);
         gradientFont.getData().setScale(2f);
@@ -58,6 +57,7 @@ public class FundamentalsTest extends Game {
         text.setY(175f);
         text.hAlignRight();
         text.setWrap(true);
+        text.setScale(4f);
     }
 
     private void update() {
