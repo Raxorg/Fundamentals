@@ -11,6 +11,7 @@ import static com.epicness.fundamentals.assets.SharedAssetPaths.SPRITESNEAREST_A
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -63,6 +64,12 @@ public class FundamentalsTest extends Game {
     private void update() {
         degrees += Gdx.graphics.getDeltaTime() * 45f;
         fontX = (MathUtils.sinDeg(degrees) + 1) * 100f;
+
+        if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
+            float x = Gdx.input.getX();
+            float y = Gdx.graphics.getHeight() - Gdx.input.getY();
+            if (text.contains(x, y)) System.out.println("Text clicked");
+        }
     }
 
     @Override

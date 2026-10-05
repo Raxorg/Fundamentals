@@ -34,8 +34,7 @@ public class TextUtils {
         return getTextSize(font, text).x;
     }
 
-    public static float getTextWidth(BitmapFont font, String text, float targetWidth, int hAlign, boolean wrap,
-                                     String truncate) {
+    public static float getTextWidth(BitmapFont font, String text, float targetWidth, int hAlign, boolean wrap, String truncate) {
         return getTextSize(font, text, targetWidth, hAlign, wrap, truncate).x;
     }
 
@@ -45,7 +44,7 @@ public class TextUtils {
             text.getText(),
             text.getTargetWidth(),
             text.getHAlign(),
-            true,
+            text.wrapEnabled(),
             text.getTruncate());
     }
 
@@ -53,8 +52,7 @@ public class TextUtils {
         return getTextSize(font, text).y;
     }
 
-    public static float getTextHeight(BitmapFont font, String text, float targetWidth, int hAlign, boolean wrap,
-                                      String truncate) {
+    public static float getTextHeight(BitmapFont font, String text, float targetWidth, int hAlign, boolean wrap, String truncate) {
         return getTextSize(font, text, targetWidth, hAlign, wrap, truncate).y;
     }
 
@@ -64,7 +62,7 @@ public class TextUtils {
             text.getText(),
             text.getTargetWidth(),
             text.getHAlign(),
-            true,
+            text.wrapEnabled(),
             text.getTruncate());
     }
 

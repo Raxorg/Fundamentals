@@ -2,12 +2,12 @@ package com.epicness.fundamentals.stuff;
 
 import static com.badlogic.gdx.utils.Align.center;
 import static com.badlogic.gdx.utils.Align.left;
+import static com.badlogic.gdx.utils.Align.right;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Align;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
 import com.epicness.fundamentals.stuff.interfaces.Movable;
@@ -78,7 +78,7 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     public boolean contains(float x, float y) {
         float textX = bounds.x + xOffset;
         return x >= textX && x <= textX + bounds.width &&
-            y >= bounds.y && y <= bounds.y + bounds.height;
+            y <= bounds.y && y >= bounds.y - bounds.height;
     }
 
     @Override
@@ -124,18 +124,22 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
     }
 
     public void hAlignCenter() {
-        hAlign = Align.center;
+        hAlign = center;
         xOffset = (targetWidth - bounds.width) * 0.5f;
     }
 
     public void hAlignRight() {
-        hAlign = Align.right;
+        hAlign = right;
         xOffset = targetWidth - bounds.width;
     }
 
     public void setVerticallyCentered(boolean centered) {
         verticallyCentered = centered;
         yOffset = centered ? bounds.height * 0.5f : 0f;
+    }
+
+    public boolean wrapEnabled() {
+        return wrap;
     }
 
     public void setWrap(boolean wrap) {
