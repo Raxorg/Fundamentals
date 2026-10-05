@@ -52,7 +52,7 @@ public class FundamentalsTest extends Game {
         dualSprited = new DualSprited(weirdShape, weirdShape);
         dualSprited.setSize(100f);
 
-        test = "ABCDEF!GHIJKL\"MNOPQR'S\nTUVWX,YZ0123:456789?ab\ncdefghijklmnopqrstuvw\nxyz";
+        test = "ABC.DEF!GHIJKL\"MNOPQR'S\nTUVWX,YZ0123:456789?ab\ncdefghijklmnopqrstuvw\nxyz";
 
         text = new Text(font, "Test Text");
         text.setY(175f);
