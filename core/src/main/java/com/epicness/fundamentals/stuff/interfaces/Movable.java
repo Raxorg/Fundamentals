@@ -41,8 +41,21 @@ public interface Movable {
         translate(amount.x, amount.y);
     }
 
+    /**
+     * Gets the current position of this movable object
+     * @param result The vector that will store the position (modified by this method)
+     * @return The result vector with updated values, for method chaining
+     */
+    default Vector2 getPosition(Vector2 result) {
+        return result.set(getX(), getY());
+    }
+
+    /**
+     * Gets the current position of this movable object
+     * @return A new Vector2 containing the position
+     */
     default Vector2 getPosition() {
-        return new Vector2(getX(), getY());
+        return getPosition(new Vector2());
     }
 
     default void setPosition(float x, float y) {
