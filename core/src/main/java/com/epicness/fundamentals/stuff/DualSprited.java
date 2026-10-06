@@ -8,9 +8,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.epicness.fundamentals.rendering.ShapeDrawerPlus;
 import com.epicness.fundamentals.stuff.interfaces.Buttonable;
+import com.epicness.fundamentals.stuff.interfaces.SpriteBatchDrawable;
 import com.epicness.fundamentals.stuff.interfaces.Transformable;
 
-public class DualSprited implements Buttonable, Transformable {
+public class DualSprited implements Buttonable, SpriteBatchDrawable, Transformable {
 
     protected final Sprite background, foreground;
     private boolean backgroundButtonable;
@@ -29,12 +30,14 @@ public class DualSprited implements Buttonable, Transformable {
         foreground.draw(spriteBatch);
     }
 
+    @Override
     public void draw(SpriteBatch spriteBatch) {
         drawBackground(spriteBatch);
         drawForeground(spriteBatch);
     }
 
-    public void drawDebug(ShapeDrawerPlus shapeDrawer) {
+    @Override
+    public void drawDebug(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer) {
         shapeDrawer.rectangle(background.getBoundingRectangle());
         shapeDrawer.rectangle(foreground.getBoundingRectangle());
     }
