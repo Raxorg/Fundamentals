@@ -43,6 +43,7 @@ public interface Movable {
 
     /**
      * Gets the current position of this movable object
+     *
      * @param result The vector that will store the position (modified by this method)
      * @return The result vector with updated values, for method chaining
      */
@@ -52,6 +53,7 @@ public interface Movable {
 
     /**
      * Gets the current position of this movable object
+     *
      * @return A new Vector2 containing the position
      */
     default Vector2 getPosition() {
