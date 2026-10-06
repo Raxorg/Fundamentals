@@ -18,22 +18,6 @@ public class BodyPlus implements Movable, Rotatable {
     protected Body body;
     private final World world;
 
-    // In the future a BodyPlus could be made out of multiple shapes, don't forget to
-    // change methods that use getFixtureList().first() accordingly
-    public BodyPlus(World world, BodyType type, Shape shape) {
-        this.world = world;
-
-        BodyDef bodyDef = new BodyDef();
-        bodyDef.type = type;
-        body = world.createBody(bodyDef);
-
-        FixtureDef fixtureDef = new FixtureDef();
-        fixtureDef.shape = shape;
-        body.createFixture(fixtureDef);
-
-        shape.dispose();
-    }
-
     public BodyPlus(World world, BodyType type, Shape... shapes) {
         this.world = world;
 
@@ -47,6 +31,10 @@ public class BodyPlus implements Movable, Rotatable {
             body.createFixture(fixtureDef);
             shapes[i].dispose();
         }
+    }
+
+    public BodyPlus(World world, BodyType type, Shape shape) {
+        this(world, type, new Shape[]{shape});
     }
 
     @Override
@@ -83,7 +71,9 @@ public class BodyPlus implements Movable, Rotatable {
      * Default is 0
      **/
     public void setDensity(float density) {
-        body.getFixtureList().first().setDensity(density);
+        for (int i = 0; i < body.getFixtureList().size; i++) {
+            body.getFixtureList().get(i).setDensity(density);
+        }
         body.resetMassData();
     }
 
@@ -91,14 +81,18 @@ public class BodyPlus implements Movable, Rotatable {
      * Usually in the range [0,1] Default is 0.2
      **/
     public void setFriction(float friction) {
-        body.getFixtureList().first().setFriction(friction);
+        for (int i = 0; i < body.getFixtureList().size; i++) {
+            body.getFixtureList().get(i).setFriction(friction);
+        }
     }
 
     /**
      * Usually in the range [0,1] Default is 0
      **/
     public void setRestitution(float restitution) {
-        body.getFixtureList().first().setRestitution(restitution);
+        for (int i = 0; i < body.getFixtureList().size; i++) {
+            body.getFixtureList().get(i).setRestitution(restitution);
+        }
     }
 
     public Vector2 getLinearVelocity() {
