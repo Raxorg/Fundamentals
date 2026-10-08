@@ -23,7 +23,6 @@ public class Screen3D<S extends Shape3D<?, ?>> {
     private final FrameBuffer frameBuffer;
     private final Sprite bufferSprite;
     private Drawable2D drawable2D;
-    private boolean flipX;
     private final Color clearColor;
 
     public Screen3D(S shape, float offsetX2D, float offsetY2D, float surfaceWidth, float surfaceHeight, Drawable2D drawable2D) {
@@ -35,6 +34,9 @@ public class Screen3D<S extends Shape3D<?, ?>> {
         frameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) surfaceWidth, (int) surfaceHeight, false);
         bufferSprite = new Sprite();
         bufferSprite.setSize(surfaceWidth, surfaceHeight);
+        bufferSprite.setRegion(frameBuffer.getColorBufferTexture()); // Resets UVs
+        bufferSprite.setFlip(false, true); // Affects UVs
+        shape.setSprite(bufferSprite); // Captures final UVs
         this.drawable2D = drawable2D;
         clearColor = new Color();
     }
@@ -65,10 +67,6 @@ public class Screen3D<S extends Shape3D<?, ?>> {
     private void end(SpriteBatch spriteBatch) {
         spriteBatch.flush();
         frameBuffer.end();
-        // Set the frame buffer's texture as the decal's texture
-        bufferSprite.setRegion(frameBuffer.getColorBufferTexture());
-        bufferSprite.flip(flipX, true);
-        shape.setSprite(bufferSprite);
     }
 
     public final void draw3D(ModelBatch modelBatch) {
@@ -87,8 +85,13 @@ public class Screen3D<S extends Shape3D<?, ?>> {
         this.drawable2D = drawable2D;
     }
 
+    public boolean isFlipX() {
+        return bufferSprite.isFlipX();
+    }
+
     public void setFlipX(boolean flipX) {
-        this.flipX = flipX;
+        bufferSprite.setFlip(flipX, bufferSprite.isFlipY());
+        shape.setSprite(bufferSprite); // Updates UVs on the material
     }
 
     public void setClearColor(Color color) {
