@@ -4,7 +4,6 @@ import static com.badlogic.gdx.graphics.GL20.GL_ONE;
 import static com.badlogic.gdx.graphics.GL20.GL_ONE_MINUS_SRC_ALPHA;
 import static com.badlogic.gdx.graphics.GL20.GL_SRC_ALPHA;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -27,21 +26,21 @@ public class Screen3D<S extends Shape3D<?, ?>> {
     private boolean flipX;
     private final Color clearColor;
 
-    public Screen3D(S shape, float offsetX2D, float offsetY2D, float cameraWidth, float cameraHeight, Drawable2D drawable2D) {
+    public Screen3D(S shape, float offsetX2D, float offsetY2D, float surfaceWidth, float surfaceHeight, Drawable2D drawable2D) {
         this.shape = shape;
         this.offsetX2D = offsetX2D;
         this.offsetY2D = offsetY2D;
-        this.cameraX = offsetX2D + cameraWidth * 0.5f;
-        this.cameraY = offsetY2D + cameraHeight * 0.5f;
-        frameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
+        this.cameraX = offsetX2D + surfaceWidth * 0.5f;
+        this.cameraY = offsetY2D + surfaceHeight * 0.5f;
+        frameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, (int) surfaceWidth, (int) surfaceHeight, false);
         bufferSprite = new Sprite();
-        bufferSprite.setSize(cameraWidth, cameraHeight);
+        bufferSprite.setSize(surfaceWidth, surfaceHeight);
         this.drawable2D = drawable2D;
         clearColor = new Color();
     }
 
-    public Screen3D(S shape, float offsetX2D, float offsetY2D, float cameraWidth, float cameraHeight) {
-        this(shape, offsetX2D, offsetY2D, cameraWidth, cameraHeight, null);
+    public Screen3D(S shape, float offsetX2D, float offsetY2D, float surfaceWidth, float surfaceHeight) {
+        this(shape, offsetX2D, offsetY2D, surfaceWidth, surfaceHeight, null);
     }
 
     public final void draw2D(SpriteBatch spriteBatch, ShapeDrawerPlus shapeDrawer, OrthographicCamera camera) {
@@ -59,7 +58,7 @@ public class Screen3D<S extends Shape3D<?, ?>> {
         spriteBatch.setProjectionMatrix(camera.combined);
         shapeDrawer.update();
         // Render to frame buffer
-        frameBuffer.bind();
+        frameBuffer.begin();
         ScreenUtils.clear(clearColor);
     }
 
