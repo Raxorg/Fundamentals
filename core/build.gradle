@@ -2,7 +2,9 @@
 
 dependencies {
   api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
-  api "com.badlogicgames.gdx:gdx:$gdxVersion"
-  api "space.earlygrey:shapedrawer:$shapeDrawerVersion"
   api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+  api "com.badlogicgames.gdx:gdx:$gdxVersion"
+  api "com.crashinvaders.vfx:gdx-vfx-core:$gdxVfxCoreVersion"
+  api "com.crashinvaders.vfx:gdx-vfx-effects:$gdxVfxEffectsVersion"
+  api "space.earlygrey:shapedrawer:$shapeDrawerVersion"
 }

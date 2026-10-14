@@ -32,6 +32,9 @@ dependencies {
   implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
   implementation "com.github.tommyettinger:gdx-backend-gwt:1.1210.0"
   implementation "com.github.tommyettinger:gdx-backend-gwt:1.1200.1:sources"
+  implementation "com.crashinvaders.vfx:gdx-vfx-core:$gdxVfxCoreVersion:sources"
+  implementation "com.crashinvaders.vfx:gdx-vfx-effects:$gdxVfxEffectsVersion:sources"
+  implementation "com.crashinvaders.vfx:gdx-vfx-gwt:$gdxVfxCoreVersion:sources"
   implementation "com.google.jsinterop:jsinterop-annotations:2.0.0:sources"
   implementation "space.earlygrey:shapedrawer:$shapeDrawerVersion:sources"
   implementation project(':core')
