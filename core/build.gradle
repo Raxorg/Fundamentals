@@ -21,14 +21,4 @@ publishing {
       version = '0.1.0'
     }
   }
-  repositories {
-    maven {
-      name = 'GitHubPackages'
-      url = uri('https://maven.pkg.github.com/raxorg/Fundamentals')
-      credentials {
-        username = System.getenv('USERNAME')
-        password = System.getenv('TOKEN')
-      }
-    }
-  }
 }
