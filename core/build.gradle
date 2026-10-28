@@ -1,3 +1,4 @@
+apply plugin: 'maven-publish'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 dependencies {
@@ -7,4 +8,25 @@ dependencies {
   api "com.crashinvaders.vfx:gdx-vfx-core:$gdxVfxCoreVersion"
   api "com.crashinvaders.vfx:gdx-vfx-effects:$gdxVfxEffectsVersion"
   api "space.earlygrey:shapedrawer:$shapeDrawerVersion"
+}
+
+publishing {
+  publications {
+    gpr(MavenPublication) {
+      from components.java
+      groupId = 'io.github.raxorg'
+      artifactId = 'fundamentals'
+      version = '0.1.0'
+    }
+  }
+  repositories {
+    maven {
+      name = 'GitHubPackages'
+      url = uri('https://maven.pkg.github.com/raxorg/Fundamentals')
+      credentials {
+        username = System.getenv('USERNAME')
+        password = System.getenv('TOKEN')
+      }
+    }
+  }
 }
