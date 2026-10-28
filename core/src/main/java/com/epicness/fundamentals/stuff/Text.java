@@ -199,7 +199,7 @@ public class Text implements Buttonable, SpriteBatchDrawable, Movable {
 
         xOffset = hAlign == left ? 0f :
             hAlign == center ? (targetWidth - bounds.width) * 0.5f :
-            targetWidth - bounds.width;
+                targetWidth - bounds.width;
         yOffset = verticallyCentered ? bounds.height * 0.5f : 0f;
     }
 }
