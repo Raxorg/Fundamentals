@@ -6,9 +6,7 @@ import static javax.lang.model.element.Modifier.PROTECTED;
 import static javax.lang.model.element.Modifier.PUBLIC;
 
 import com.badlogic.gdx.assets.AssetDescriptor;
-import com.epicness.fundamentals.assets.Assets;
 import com.epicness.fundamentals.automation.TypeSpecWithStaticImports.StaticImport;
-import com.epicness.fundamentals.utils.StringUtils;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
@@ -20,6 +18,8 @@ import java.util.stream.Stream;
 
 public class AssetsTypeSpecGenerator {
 
+    private static final ClassName ASSETS_CLASS = ClassName.get("com.epicness.fundamentals.assets", "Assets");
+
     public static TypeSpecWithStaticImports generateSpec(String assetsPackage, String classPrefix,
                                                          List<AssetDescriptor<?>> assetDescriptors) {
         ClassName assetPaths = ClassName.get(assetsPackage, classPrefix + "AssetPaths");
@@ -30,7 +30,7 @@ public class AssetsTypeSpecGenerator {
     private static TypeSpec assetsSpec(String classPrefix, List<AssetDescriptor<?>> descriptors) {
         TypeSpec.Builder builder = TypeSpec.classBuilder(classPrefix + "Assets")
             .addModifiers(PUBLIC)
-            .superclass(Assets.class);
+            .superclass(ASSETS_CLASS);
 
         builder.addMethod(constructor());
         builder.addFields(fieldSpecs(descriptors));
